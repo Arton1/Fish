@@ -1,2 +1,6 @@
-﻿  main.cpp
+﻿  MainMenu.cpp
+  main.cpp
+  Game.cpp
+  Engine.cpp
+  Generating Code...
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe
