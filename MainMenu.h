@@ -1,10 +1,13 @@
 #pragma once
+#include "Global.h"
 #include "State.h"
+#include "Button.h"
 
 class MainMenu : public State
 {
-	void getInput();
-	void update();
+	std::unique_ptr<Button> startButton;
+
+	void changeOnInput(sf::Event &event);
 	void render();
 public:
 	MainMenu();

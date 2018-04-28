@@ -4,7 +4,8 @@
 Engine::Engine()
 {
 	window.create(sf::VideoMode(800, 600), "Ryby");
-	setState();
+	window.setVerticalSyncEnabled(true);
+	setState(new MainMenu());
 }
 
 void Engine::run() {
@@ -21,8 +22,9 @@ void Engine::getInput() {
 	{
 		if (event.type == sf::Event::Closed)
 			window.close();
+		else
+			currState->changeOnInput(event);
 	}
-	currState->getInput();
 }
 
 void Engine::update() {
@@ -33,7 +35,21 @@ void Engine::render() {
 	currState->render();
 }
 
-void Engine::setState() 
-{
-	currState.reset(new MainMenu());
+void Engine::setState(State *newState) {
+	if (newState) {
+		newState->setEngine(this);
+		currState.reset(newState);
+	}
+	else
+		terminate();
 }
+
+void Engine::setView(const sf::View &view) { 
+	window.setView(view);
+}
+Game& Engine::getGameInstance() const {
+	return *gameInstance.get();
+}
+sf::RenderWindow& Engine::getWindow() { 
+	return window;
+};

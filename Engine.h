@@ -17,12 +17,15 @@ private:
 	void update();
 	void render();
 
-	void setState();
-
 public:
 	Engine();
 	~Engine() {};
 
 	void run();
+	void setState(State *newState);
+	void setView(const sf::View &view);
+
+	Game& getGameInstance() const;
+	sf::RenderWindow& getWindow();
 };
 
