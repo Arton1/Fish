@@ -3,10 +3,18 @@
 
 class Button : public sf::Drawable
 {
-	sf::RectangleShape body;
 public:
-	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-	//Button(int sizeX, int sizeY, int posX, int posY);
+	enum State { NOTHING, CLICKED };
+private:
+	sf::RectangleShape body;
+	State state;
+public:
+	Button(int sizeX, int sizeY, int posX, int posY, sf::Color color, sf::String txt);
 	Button();
 	~Button();
+	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
+	bool clicked(sf::Vector2f worldPos);
+	int getState();
+	void setState(State state);
 };

@@ -5,7 +5,7 @@ Engine::Engine()
 {
 	window.create(sf::VideoMode(800, 600), "Ryby");
 	window.setVerticalSyncEnabled(true);
-	setState(new MainMenu());
+	setState(new MainMenu(this));
 }
 
 void Engine::run() {
@@ -32,12 +32,13 @@ void Engine::update() {
 }
 
 void Engine::render() {
+	window.clear(sf::Color::White);
 	currState->render();
+	window.display();
 }
 
 void Engine::setState(State *newState) {
 	if (newState) {
-		newState->setEngine(this);
 		currState.reset(newState);
 	}
 	else
@@ -47,9 +48,18 @@ void Engine::setState(State *newState) {
 void Engine::setView(const sf::View &view) { 
 	window.setView(view);
 }
+
+sf::Vector2f Engine::getWorldCoordsOfMouse()
+{
+	sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
+	sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos);
+	return worldPos;
+}
+
 Game& Engine::getGameInstance() const {
 	return *gameInstance.get();
 }
+
 sf::RenderWindow& Engine::getWindow() { 
 	return window;
-};
+}

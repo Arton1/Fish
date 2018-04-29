@@ -7,10 +7,11 @@ class MainMenu : public State
 {
 	std::unique_ptr<Button> startButton;
 
+	void createScenery();
 	void changeOnInput(sf::Event &event);
 	void render();
 public:
-	MainMenu();
+	MainMenu(Engine *engineRef);
 	~MainMenu() {};
 };
 

@@ -15,6 +15,7 @@ public:
 	virtual void changeOnInput(sf::Event &event) = 0;
 	virtual void update() {};
 	virtual void render() = 0;
+	virtual void createScenery() = 0;
 	virtual ~State() {};
 	void setEngine(Engine *engine) { engineRef = engine; };
 };
