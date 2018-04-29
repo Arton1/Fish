@@ -7,9 +7,10 @@ public:
 	enum State { NOTHING, CLICKED };
 private:
 	sf::RectangleShape body;
+	std::string label;
 	State state;
 public:
-	Button(int sizeX, int sizeY, int posX, int posY, sf::Color color, sf::String txt);
+	Button(float sizeX, float sizeY, float posX, float posY, sf::Color color, std::string txt);
 	Button();
 	~Button();
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

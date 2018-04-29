@@ -12,7 +12,11 @@ MainMenu::MainMenu(Engine *engineRef)
 }
 
 void MainMenu::createScenery() {
-	startButton = std::make_unique<Button>();
+	sf::Vector2i buttonSize = sf::Vector2i(200, 100);
+	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x / 2, 0);
+	startButton = std::make_unique<Button>(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y/2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start");
+	creditButton = std::make_unique<Button>(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y/2, sf::Color::Red, "Credit");
+	quitButton = std::make_unique<Button>(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y/2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit");
 }
 
 void MainMenu::changeOnInput(sf::Event &event)
@@ -33,4 +37,6 @@ void MainMenu::render()
 {
 	sf::RenderWindow &window = engineRef->getWindow();
 	window.draw(*startButton);
+	window.draw(*creditButton);
+	window.draw(*quitButton);
 }

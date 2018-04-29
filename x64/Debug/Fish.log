@@ -1,10 +1,17 @@
-﻿  MainMenu.cpp
-  Button.cpp
-c:\users\acer\desktop\fish\button.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\acer\desktop\fish\button.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Button.cpp
   Generating Code...
   Compiling...
-  main.cpp
-  Engine.cpp
+  MainMenu.cpp
+c:\users\acer\desktop\fish\mainmenu.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\memory(2438): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  c:\users\acer\desktop\fish\mainmenu.cpp(17): note: see reference to function template instantiation 'std::unique_ptr<Button,std::default_delete<_Ty>> std::make_unique<Button,T&,T&,float&,double,const sf::Color&,const char(&)[6],void>(T &,T &,float &,double &&,const sf::Color &,const char (&)[6])' being compiled
+          with
+          [
+              _Ty=Button,
+              T=int
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\memory(2438): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
+  Skipping... (no relevant changes detected)
+  Engine.cpp
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

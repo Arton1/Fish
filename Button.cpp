@@ -12,13 +12,14 @@ Button::Button()
 	std::cout << "Created button" << std::endl;
 }
 
-Button::Button(int sizeX, int sizeY, int posX, int posY, sf::Color color, sf::String txt) {
+Button::Button(float sizeX, float sizeY, float posX, float posY, sf::Color color, std::string txt) {
 	body.setSize(sf::Vector2f(sizeX, sizeY));
 	body.setPosition(posX, posY);
 	body.setOutlineThickness(1.f);
 	body.setOutlineColor(sf::Color::Black);
 	body.setFillColor(color);
-	std::cout << "Created button" << std::endl;
+	label = txt;
+	std::cout << "Created button " + label  << std::endl;
 }
 
 Button::~Button()
