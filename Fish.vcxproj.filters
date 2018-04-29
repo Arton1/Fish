@@ -22,13 +22,16 @@
     <Filter Include="States\Header">
       <UniqueIdentifier>{bfb1c52c-cd06-422e-b42a-c4317d3f69ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Composite">
+    <Filter Include="Object">
+      <UniqueIdentifier>{dab9e8d2-8125-4dac-9435-7f40dfc636ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Composite">
       <UniqueIdentifier>{f8fdad32-52e3-4cc0-87b6-ddee6eb3a7ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Composite\Header">
+    <Filter Include="Object\Composite\Header">
       <UniqueIdentifier>{dee45d62-66b2-4ee5-8c1b-406ff79b8493}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Composite\Source">
+    <Filter Include="Object\Composite\Source">
       <UniqueIdentifier>{fa26f6ca-4726-4b9a-a72c-7068cee65a43}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -45,23 +48,20 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>States\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ClickableGroup.cpp">
+      <Filter>Object\Composite\Source</Filter>
+    </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="ClickableObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="DrawableGroup.cpp">
-      <Filter>Composite\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ClickableGroup.cpp">
-      <Filter>Composite\Source</Filter>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -74,17 +74,23 @@
     <ClInclude Include="MainMenu.h">
       <Filter>States\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClickableObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DrawableGroup.h">
-      <Filter>Composite\Header</Filter>
+      <Filter>Object\Composite\Header</Filter>
     </ClInclude>
     <ClInclude Include="ClickableGroup.h">
-      <Filter>Composite\Header</Filter>
+      <Filter>Object\Composite\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickableObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

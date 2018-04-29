@@ -8,15 +8,20 @@ MainMenu::MainMenu(Engine *engineRef)
 	setEngine(engineRef);
 	sf::View view(sf::Vector2f(0, 0), sf::Vector2f(800, 600));
 	engineRef->setView(view);
+	objects = new DrawableGroup<>();
+	clickables = new ClickableGroup();
+	objects->add(clickables);
 	createScenery();
 }
 
 void MainMenu::createScenery() {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x / 2, 0);
-	clickables.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start"));
-	clickables.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit"));
-	clickables.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit"));
+	clickables->add(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start"));
+	DrawableGroup<> *drawables2 = new DrawableGroup<>();
+	drawables2->add(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit"));
+	clickables->add(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit"));
+	objects->add(drawables2);
 }
 
 void MainMenu::changeOnInput(sf::Event &event)
@@ -25,23 +30,20 @@ void MainMenu::changeOnInput(sf::Event &event)
 	case sf::Event::MouseButtonPressed: {
 		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
 		if (event.mouseButton.button == sf::Mouse::Left) {
-			for (int i = 0; i < clickables.size(); i++) {
-				if (clickables[i].clicked(worldCoordsOfMouse))
+			for (int i = 0; i < clickables->getSize(); i++) {
+				if (clickables->getComponent(i).gotClicked(worldCoordsOfMouse))
 					std::cout << "Clicked button" << std::endl;
 			}
 		}
-		break;
+		
 	}
+	break;
 	}
 }
 
 void MainMenu::render()
 {
+//	std::cout << objects.getSize() << " " << clickables.getSize() << std::endl;
 	sf::RenderWindow &window = engineRef->getWindow();
-	for (int i = 0; i < clickables.size(); i++) {
-		window.draw(clickables[i]);
-	}
-	for (int i = 0; i < drawables.size(); i++) {
-		window.draw(drawables[i]);
-	}
+	window.draw(*objects);
 }

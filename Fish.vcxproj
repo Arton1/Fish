@@ -156,11 +156,11 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ClickableGroup.cpp" />
     <ClCompile Include="ClickableObject.cpp" />
-    <ClCompile Include="DrawableGroup.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Object.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -171,6 +171,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,11 +3,13 @@
 #include "State.h"
 #include "Button.h"
 #include <vector>
+#include "ClickableGroup.h"
+#include "DrawableGroup.h"
 
 class MainMenu : public State
 {
-	std::vector<ClickableObject> clickables;
-	std::vector<sf::Drawable> drawables;
+	DrawableGroup<> *objects;
+	ClickableGroup *clickables;
 
 	void createScenery();
 	void changeOnInput(sf::Event &event);

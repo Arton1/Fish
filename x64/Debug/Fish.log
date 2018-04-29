@@ -1,46 +1,16 @@
-﻿  MainMenu.cpp
-c:\users\acer\desktop\fish\mainmenu.cpp(17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): error C2259: 'ClickableObject': cannot instantiate abstract class
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): note: due to following members:
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): note: 'void ClickableObject::draw(sf::RenderTarget &,sf::RenderStates) const': is abstract
-  c:\users\acer\desktop\fish\clickableobject.h(13): note: see declaration of 'ClickableObject::draw'
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,_Ty>(_Alloc &,_Objty *const ,_Ty &&)' being compiled
-          with
-          [
-              _Alloc=std::allocator<ClickableObject>,
-              _Ty=ClickableObject,
-              _Objty=ClickableObject
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,_Ty>(_Alloc &,_Objty *const ,_Ty &&)' being compiled
-          with
-          [
-              _Alloc=std::allocator<ClickableObject>,
-              _Ty=ClickableObject,
-              _Objty=ClickableObject
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(986): note: see reference to function template instantiation 'void std::vector<ClickableObject,std::allocator<_Ty>>::emplace_back<ClickableObject>(ClickableObject &&)' being compiled
-          with
-          [
-              _Ty=ClickableObject
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(985): note: while compiling class template member function 'void std::vector<ClickableObject,std::allocator<_Ty>>::push_back(_Ty &&)'
-          with
-          [
-              _Ty=ClickableObject
-          ]
-  c:\users\acer\desktop\fish\mainmenu.cpp(17): note: see reference to function template instantiation 'void std::vector<ClickableObject,std::allocator<_Ty>>::push_back(_Ty &&)' being compiled
-          with
-          [
-              _Ty=ClickableObject
-          ]
-  c:\users\acer\desktop\fish\mainmenu.h(9): note: see reference to class template instantiation 'std::vector<ClickableObject,std::allocator<_Ty>>' being compiled
-          with
-          [
-              _Ty=ClickableObject
-          ]
+﻿  ClickableGroup.cpp
+  Generating Code...
+  Compiling...
+  MainMenu.cpp
+c:\users\acer\desktop\fish\mainmenu.cpp(20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\acer\desktop\fish\mainmenu.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\acer\desktop\fish\mainmenu.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\acer\desktop\fish\mainmenu.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\acer\desktop\fish\mainmenu.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\acer\desktop\fish\drawablegroup.h(73): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  c:\users\acer\desktop\fish\drawablegroup.h(72): note: while compiling class template member function 'int DrawableGroup<ClickableObject>::getSize(void)'
+  c:\users\acer\desktop\fish\mainmenu.cpp(33): note: see reference to function template instantiation 'int DrawableGroup<ClickableObject>::getSize(void)' being compiled
+  c:\users\acer\desktop\fish\clickablegroup.h(6): note: see reference to class template instantiation 'DrawableGroup<ClickableObject>' being compiled
   Engine.cpp
   Generating Code...
+  Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

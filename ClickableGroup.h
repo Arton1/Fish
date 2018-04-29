@@ -2,10 +2,9 @@
 #include "ClickableObject.h"
 #include "DrawableGroup.h"
 
-class ClickableGroup : virtual public DrawableGroup<ClickableObject>, virtual public ClickableObject
+class ClickableGroup : public DrawableGroup<ClickableObject>
 {
 public:
-
 	ClickableGroup() {};
 	~ClickableGroup() {};
 };
