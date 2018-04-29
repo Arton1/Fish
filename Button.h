@@ -1,21 +1,20 @@
 #pragma once
-#include <SFML\Graphics.hpp>
+#include "ClickableObject.h"
+#include <string>
 
-class Button : public sf::Drawable
+class Button : public ClickableObject
 {
 public:
 	enum State { NOTHING, CLICKED };
 private:
-	sf::RectangleShape body;
 	std::string label;
 	State state;
 public:
-	Button(float sizeX, float sizeY, float posX, float posY, sf::Color color, std::string txt);
+	Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt);
 	Button();
-	~Button();
-	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+	~Button() {};
+	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
-	bool clicked(sf::Vector2f worldPos);
 	int getState();
 	void setState(State state);
 };

@@ -12,11 +12,11 @@ MainMenu::MainMenu(Engine *engineRef)
 }
 
 void MainMenu::createScenery() {
-	sf::Vector2i buttonSize = sf::Vector2i(200, 100);
+	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x / 2, 0);
-	startButton = std::make_unique<Button>(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y/2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start");
-	creditButton = std::make_unique<Button>(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y/2, sf::Color::Red, "Credit");
-	quitButton = std::make_unique<Button>(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y/2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit");
+	clickables.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start"));
+	clickables.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit"));
+	clickables.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit"));
 }
 
 void MainMenu::changeOnInput(sf::Event &event)
@@ -25,8 +25,10 @@ void MainMenu::changeOnInput(sf::Event &event)
 	case sf::Event::MouseButtonPressed: {
 		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
 		if (event.mouseButton.button == sf::Mouse::Left) {
-			if (startButton->clicked(worldCoordsOfMouse))
-				std::cout << "Clicked button" << std::endl;
+			for (int i = 0; i < clickables.size(); i++) {
+				if (clickables[i].clicked(worldCoordsOfMouse))
+					std::cout << "Clicked button" << std::endl;
+			}
 		}
 		break;
 	}
@@ -36,7 +38,10 @@ void MainMenu::changeOnInput(sf::Event &event)
 void MainMenu::render()
 {
 	sf::RenderWindow &window = engineRef->getWindow();
-	window.draw(*startButton);
-	window.draw(*creditButton);
-	window.draw(*quitButton);
+	for (int i = 0; i < clickables.size(); i++) {
+		window.draw(clickables[i]);
+	}
+	for (int i = 0; i < drawables.size(); i++) {
+		window.draw(drawables[i]);
+	}
 }

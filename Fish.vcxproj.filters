@@ -22,6 +22,15 @@
     <Filter Include="States\Header">
       <UniqueIdentifier>{bfb1c52c-cd06-422e-b42a-c4317d3f69ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Composite">
+      <UniqueIdentifier>{f8fdad32-52e3-4cc0-87b6-ddee6eb3a7ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Composite\Header">
+      <UniqueIdentifier>{dee45d62-66b2-4ee5-8c1b-406ff79b8493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Composite\Source">
+      <UniqueIdentifier>{fa26f6ca-4726-4b9a-a72c-7068cee65a43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +47,15 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableGroup.cpp">
+      <Filter>Composite\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickableGroup.cpp">
+      <Filter>Composite\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +76,15 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickableObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableGroup.h">
+      <Filter>Composite\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickableGroup.h">
+      <Filter>Composite\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

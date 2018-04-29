@@ -1,43 +1,34 @@
 #include "Button.h"
+#include <SFML\Graphics.hpp>
 #include <iostream>
 
 Button::Button()
 {
-	body.setSize(sf::Vector2f(200, 200));
-	body.setPosition(-300, -300);
-	body.setOutlineThickness(1.f);
-	body.setOutlineColor(sf::Color::White);
-	body.setFillColor(sf::Color::Red);
-	setState(State::NOTHING);
+	sf::Image image;
+	image.create(200, 200);
+	sf::Texture texture;
+	texture.loadFromImage(image);
+	body.setTexture(texture);
+	body.setColor(sf::Color::Yellow);
+	this->setState(State::NOTHING);
 	std::cout << "Created button" << std::endl;
 }
 
-Button::Button(float sizeX, float sizeY, float posX, float posY, sf::Color color, std::string txt) {
-	body.setSize(sf::Vector2f(sizeX, sizeY));
+Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt) {
+	sf::Image image;
+	image.create(sizeX, sizeY);
+	sf::Texture texture;
+	texture.loadFromImage(image);
+	body.setTexture(texture);
+	body.setColor(color);
 	body.setPosition(posX, posY);
-	body.setOutlineThickness(1.f);
-	body.setOutlineColor(sf::Color::Black);
-	body.setFillColor(color);
 	label = txt;
+	this->setState(State::NOTHING);
 	std::cout << "Created button " + label  << std::endl;
-}
-
-Button::~Button()
-{
 }
 
 void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 	target.draw(body);
-}
-
-bool Button::clicked(sf::Vector2f worldPos)
-{
-	if (body.getGlobalBounds().contains(worldPos.x, worldPos.y)){
-		setState(State::CLICKED);
-		return true;
-	}
-	setState(State::NOTHING);
-	return false;
 }
 
 int Button::getState()

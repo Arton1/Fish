@@ -2,12 +2,12 @@
 #include "Global.h"
 #include "State.h"
 #include "Button.h"
+#include <vector>
 
 class MainMenu : public State
 {
-	std::unique_ptr<Button> startButton;
-	std::unique_ptr<Button> creditButton;
-	std::unique_ptr<Button> quitButton;
+	std::vector<ClickableObject> clickables;
+	std::vector<sf::Drawable> drawables;
 
 	void createScenery();
 	void changeOnInput(sf::Event &event);
