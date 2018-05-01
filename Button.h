@@ -9,8 +9,9 @@ public:
 private:
 	std::string label;
 	State state;
+
 public:
-	Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt);
+	Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, void(*onClickPtr)() = ClickPtr::defaultClick);
 	Button();
 	~Button() {};
 	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;

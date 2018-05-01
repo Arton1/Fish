@@ -11,10 +11,11 @@ Button::Button()
 	body.setTexture(texture);
 	body.setColor(sf::Color::Yellow);
 	this->setState(State::NOTHING);
+	onClick = ClickPtr::defaultClick;
 	std::cout << "Created button" << std::endl;
 }
 
-Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt) {
+Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, void (*onClickPtr)()) {
 	sf::Image image;
 	image.create(sizeX, sizeY);
 	sf::Texture texture;
@@ -24,6 +25,7 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setPosition(posX, posY);
 	label = txt;
 	this->setState(State::NOTHING);
+	onClick = onClickPtr;
 	std::cout << "Created button " + label  << std::endl;
 }
 
@@ -35,8 +37,6 @@ int Button::getState()
 {
 	return state;
 }
-
-
 
 void Button::setState(State state)
 {

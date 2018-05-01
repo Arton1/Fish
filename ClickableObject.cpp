@@ -1,8 +1,14 @@
 #include "ClickableObject.h"
+#include <iostream>
 
-bool ClickableObject::gotClicked(const sf::Vector2f &worldPos)
+void ClickableObject::click(const sf::Vector2f &worldPos)
 {
-	if (body.getGlobalBounds().contains(worldPos.x, worldPos.y))
-		return true;
-	return false;
+	if(onClick)
+		if (body.getGlobalBounds().contains(worldPos.x, worldPos.y))
+			onClick();
+}
+
+void ClickPtr::defaultClick()
+{
+	std::cout << "Clicked" << std::endl;
 }

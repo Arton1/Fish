@@ -1,11 +1,17 @@
 #pragma once
 #include "Object.h"
 
+namespace ClickPtr {
+	void defaultClick();
+}
+
 class ClickableObject : public Object
 {
+protected:
+	void (*onClick)();
 public:
-	ClickableObject() {};
-	~ClickableObject() {};
+	void click(const sf::Vector2f &worldMousePos);
 
-	virtual bool gotClicked(const sf::Vector2f &worldPos);
+	ClickableObject() {};
+	virtual ~ClickableObject() {};
 };
