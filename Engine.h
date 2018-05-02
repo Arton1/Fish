@@ -13,10 +13,11 @@ class Engine
 	std::unique_ptr<State> currState;
 
 private:
+	void loadFromFiles();
+
 	void getInput();
 	void update();
 	void render();
-
 public:
 	Engine();
 	~Engine() {};
@@ -24,6 +25,7 @@ public:
 	void run();
 	void setState(State *newState);
 	void setView(const sf::View &view);
+
 	sf::Vector2f getWorldCoordsOfMouse();
 
 	Game& getGameInstance() const;

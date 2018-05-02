@@ -1,10 +1,12 @@
 #include "Engine.h"
 #include "MainMenu.h"
+#include "Button.h"
 
 Engine::Engine()
 {
 	window.create(sf::VideoMode(800, 600), "Ryby");
 	window.setVerticalSyncEnabled(true);
+	loadFromFiles();
 	setState(new MainMenu(this));
 }
 
@@ -23,7 +25,7 @@ void Engine::getInput() {
 		if (event.type == sf::Event::Closed)
 			window.close();
 		else
-			currState->changeOnInput(event);
+			currState->input(event);
 	}
 }
 
@@ -42,11 +44,17 @@ void Engine::setState(State *newState) {
 		currState.reset(newState);
 	}
 	else
-		terminate();
+		std::terminate();
 }
 
 void Engine::setView(const sf::View &view) { 
 	window.setView(view);
+}
+
+void Engine::loadFromFiles()
+{
+	if (!Button::setFont("Crimson-Roman.ttf"))
+		std::terminate();
 }
 
 sf::Vector2f Engine::getWorldCoordsOfMouse()

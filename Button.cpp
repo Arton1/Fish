@@ -1,6 +1,9 @@
 #include "Button.h"
+#include "State.h"
 #include <SFML\Graphics.hpp>
 #include <iostream>
+
+sf::Font Button::font;
 
 Button::Button()
 {
@@ -10,12 +13,15 @@ Button::Button()
 	texture.loadFromImage(image);
 	body.setTexture(texture);
 	body.setColor(sf::Color::Yellow);
-	this->setState(State::NOTHING);
-	onClick = ClickPtr::defaultClick;
 	std::cout << "Created button" << std::endl;
 }
 
-Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, void (*onClickPtr)()) {
+bool Button::setFont(std::string location)
+{
+	return font.loadFromFile(location);
+}
+
+Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt) {
 	sf::Image image;
 	image.create(sizeX, sizeY);
 	sf::Texture texture;
@@ -23,22 +29,8 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setTexture(texture);
 	body.setColor(color);
 	body.setPosition(posX, posY);
-	label = txt;
-	this->setState(State::NOTHING);
-	onClick = onClickPtr;
-	std::cout << "Created button " + label  << std::endl;
-}
-
-void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-	target.draw(body);
-}
-
-int Button::getState()
-{
-	return state;
-}
-
-void Button::setState(State state)
-{
-	this->state = state;
+	label.setFont(font);
+	label.setString(txt);
+	label.setPosition(body.getPosition());
+	std::cout << "Created button " + (std::string)label.getString()  << std::endl;
 }

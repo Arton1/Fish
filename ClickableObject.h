@@ -8,10 +8,13 @@ namespace ClickPtr {
 class ClickableObject : public Object
 {
 protected:
-	void (*onClick)();
+	bool gotClicked;
 public:
-	void click(const sf::Vector2f &worldMousePos);
+	virtual bool isClicked();
+	virtual void setClicked(bool clicked);
 
-	ClickableObject() {};
+	virtual void click(const sf::Vector2f &worldMousePos);
+
+	ClickableObject();
 	virtual ~ClickableObject() {};
 };

@@ -22,7 +22,7 @@ void MainMenu::createScenery() {
 	clickables->add(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit"));
 }
 
-void MainMenu::changeOnInput(sf::Event &event)
+void MainMenu::input(sf::Event &event)
 {
 	switch (event.type) {
 	case sf::Event::MouseButtonPressed: {
@@ -31,12 +31,24 @@ void MainMenu::changeOnInput(sf::Event &event)
 			clickables->click(worldCoordsOfMouse);
 			}
 		}
-		
 	}
 }
-
+void MainMenu::update() {
+	if (clickables->getComponent(2).isClicked())
+		onExit();
+}
 void MainMenu::render()
 {
 	sf::RenderWindow &window = engineRef->getWindow();
 	window.draw(*objects);
+}
+
+void MainMenu::onExit() {
+	engineRef->getWindow().close();
+}
+void MainMenu::onStart() {
+
+}
+void MainMenu::onCredit() {
+
 }

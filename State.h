@@ -12,8 +12,8 @@ protected:
 	Engine *engineRef;
 
 public:
-	virtual void changeOnInput(sf::Event &event) = 0;
-	virtual void update() {};
+	virtual void input(sf::Event &event) = 0;
+	virtual void update() = 0;
 	virtual void render() = 0;
 	virtual void createScenery() = 0;
 	virtual ~State() {};
