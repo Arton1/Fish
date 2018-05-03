@@ -2,4 +2,7 @@
 .vs/Fish/v15/Browse.VC.opendb
 .vs/Fish/v15/Browse.VC.db
 *.ipch
+<<<<<<< HEAD
 .vs/Fish/v15/ipch/AutoPCH/5725bd483ec37155/OBJECT.ipch
+=======
+>>>>>>> States

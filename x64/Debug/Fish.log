@@ -1,16 +1,2 @@
-﻿  ClickableGroup.cpp
-  Generating Code...
-  Compiling...
-  MainMenu.cpp
-c:\users\acer\desktop\fish\mainmenu.cpp(20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\acer\desktop\fish\mainmenu.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\acer\desktop\fish\drawablegroup.h(73): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  c:\users\acer\desktop\fish\drawablegroup.h(72): note: while compiling class template member function 'int DrawableGroup<ClickableObject>::getSize(void)'
-  c:\users\acer\desktop\fish\mainmenu.cpp(33): note: see reference to function template instantiation 'int DrawableGroup<ClickableObject>::getSize(void)' being compiled
-  c:\users\acer\desktop\fish\clickablegroup.h(6): note: see reference to class template instantiation 'DrawableGroup<ClickableObject>' being compiled
-  Engine.cpp
-  Generating Code...
+﻿  Button.cpp
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

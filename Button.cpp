@@ -1,6 +1,9 @@
 #include "Button.h"
+#include "State.h"
 #include <SFML\Graphics.hpp>
 #include <iostream>
+
+sf::Font Button::font;
 
 Button::Button()
 {
@@ -10,8 +13,18 @@ Button::Button()
 	texture.loadFromImage(image);
 	body.setTexture(texture);
 	body.setColor(sf::Color::Yellow);
-	this->setState(State::NOTHING);
 	std::cout << "Created button" << std::endl;
+}
+
+bool Button::setFont(std::string location)
+{
+	return font.loadFromFile(location);
+}
+
+void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	target.draw(body);
+	target.draw(label);
 }
 
 Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt) {
@@ -22,23 +35,15 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setTexture(texture);
 	body.setColor(color);
 	body.setPosition(posX, posY);
-	label = txt;
-	this->setState(State::NOTHING);
-	std::cout << "Created button " + label  << std::endl;
+	label.setFont(font);
+	label.setString(txt);
+	label.setPosition(getLabelPositionToSetTo());
 }
 
-void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-	target.draw(body);
-}
-
-int Button::getState()
+sf::Vector2f Button::getLabelPositionToSetTo()
 {
-	return state;
-}
-
-
-
-void Button::setState(State state)
-{
-	this->state = state;
+	sf::Vector2f position;
+	position.x = body.getPosition().x + body.getTexture()->getSize().x/3;
+	position.y = body.getPosition().y + body.getTexture()->getSize().y/3;
+	return position;
 }

@@ -12,8 +12,13 @@ class MainMenu : public State
 	ClickableGroup *clickables;
 
 	void createScenery();
-	void changeOnInput(sf::Event &event);
+	void input(sf::Event &event);
+	void update();
 	void render();
+
+	void onExit();
+	void onStart();
+	void onCredit();
 public:
 	MainMenu(Engine *engineRef);
 	~MainMenu() {};
