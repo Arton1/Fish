@@ -45,9 +45,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>States\Source</Filter>
-    </ClCompile>
     <ClCompile Include="ClickableGroup.cpp">
       <Filter>Object\Composite\Source</Filter>
     </ClCompile>
@@ -59,6 +56,15 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditMenu.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>States\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditMenu.h">
+      <Filter>States\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

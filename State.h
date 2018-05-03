@@ -1,4 +1,6 @@
 #pragma once
+#include "DrawableGroup.h"
+#include "ClickableGroup.h"
 
 class Engine;
 
@@ -10,12 +12,15 @@ class State
 {
 protected:
 	Engine *engineRef;
+	DrawableGroup<> *objects;
+	ClickableGroup *clickables;
 
-public:
-	virtual void input(sf::Event &event) = 0;
-	virtual void update() = 0;
-	virtual void render() = 0;
 	virtual void createScenery() = 0;
-	virtual ~State() {};
+public:
+	virtual void input(sf::Event &event);
+	virtual void update() = 0;
+	virtual void render();
+	State(Engine *engineRef);
+	virtual ~State() { delete objects; };
 	void setEngine(Engine *engine) { engineRef = engine; };
 };

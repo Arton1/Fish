@@ -1,16 +1,12 @@
 #include "MainMenu.h"
 #include "Engine.h"
+#include "CreditMenu.h"
 #include <SFML\Graphics.hpp>
 #include <iostream>
 
-MainMenu::MainMenu(Engine *engineRef)
+MainMenu::MainMenu(Engine *engineRef):
+	State(engineRef)
 {
-	setEngine(engineRef);
-	sf::View view(sf::Vector2f(0, 0), sf::Vector2f(800, 600));
-	engineRef->setView(view);
-	objects = new DrawableGroup<>();
-	clickables = new ClickableGroup();
-	objects->add(clickables);
 	createScenery();
 }
 
@@ -22,25 +18,12 @@ void MainMenu::createScenery() {
 	clickables->add(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit"));
 }
 
-void MainMenu::input(sf::Event &event)
-{
-	switch (event.type) {
-	case sf::Event::MouseButtonPressed: {
-		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
-		if (event.mouseButton.button == sf::Mouse::Left) {
-			clickables->click(worldCoordsOfMouse);
-			}
-		}
-	}
-}
 void MainMenu::update() {
 	if (clickables->getComponent(2).isClicked())
 		onExit();
-}
-void MainMenu::render()
-{
-	sf::RenderWindow &window = engineRef->getWindow();
-	window.draw(*objects);
+	else
+		if (clickables->getComponent(1).isClicked())
+			onCredit();
 }
 
 void MainMenu::onExit() {
@@ -50,5 +33,5 @@ void MainMenu::onStart() {
 
 }
 void MainMenu::onCredit() {
-
+	engineRef->setState(new CreditMenu(engineRef));
 }

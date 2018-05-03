@@ -8,13 +8,9 @@
 
 class MainMenu : public State
 {
-	DrawableGroup<> *objects;
-	ClickableGroup *clickables;
 
 	void createScenery();
-	void input(sf::Event &event);
 	void update();
-	void render();
 
 	void onExit();
 	void onStart();
