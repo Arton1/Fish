@@ -21,6 +21,12 @@ bool Button::setFont(std::string location)
 	return font.loadFromFile(location);
 }
 
+void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	target.draw(body);
+	target.draw(label);
+}
+
 Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt) {
 	sf::Image image;
 	image.create(sizeX, sizeY);
@@ -31,6 +37,13 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setPosition(posX, posY);
 	label.setFont(font);
 	label.setString(txt);
-	label.setPosition(body.getPosition());
-	std::cout << "Created button " + (std::string)label.getString()  << std::endl;
+	label.setPosition(getLabelPositionToSetTo());
+}
+
+sf::Vector2f Button::getLabelPositionToSetTo()
+{
+	sf::Vector2f position;
+	position.x = body.getPosition().x + body.getTexture()->getSize().x/3;
+	position.y = body.getPosition().y + body.getTexture()->getSize().y/3;
+	return position;
 }
