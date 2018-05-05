@@ -11,7 +11,7 @@ class CreditMenu : public State
 
 	void onExitToMenu();
 public:
-	void update() override;
+	void update(double dt) override;
 
 	CreditMenu(Engine *engineRef);
 	~CreditMenu();

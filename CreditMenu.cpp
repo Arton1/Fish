@@ -38,7 +38,7 @@ void CreditMenu::onExitToMenu()
 	engineRef->setState(new MainMenu(engineRef));
 }
 
-void CreditMenu::update()
+void CreditMenu::update(double dt)
 {
 	if (currentlyClickedObj) {
 		currentlyClickedObj->onClick();

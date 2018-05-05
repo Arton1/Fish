@@ -64,12 +64,13 @@ void PlayState::input(sf::Event & event)
 }
 
 
-void PlayState::update()
+void PlayState::update(double dt)
 {
 	if (currentlyClickedObj) {
 		currentlyClickedObj->onClick();
 		currentlyClickedObj = NULL;
 	}
+	area[0][0].fade(dt);
 }
 
 void PlayState::render() {

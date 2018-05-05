@@ -23,7 +23,7 @@ protected:
 	void addButton(Button &clickableObject);
 public:
 	virtual void input(sf::Event &event);
-	virtual void update() = 0;
+	virtual void update(double dt) = 0;
 	virtual void render();
 	void setEngine(Engine *engine) { engineRef = engine; };
 	State(Engine *engineRef);

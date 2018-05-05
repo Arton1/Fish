@@ -23,7 +23,7 @@ void MainMenu::createScenery() {
 	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback));
 }
 
-void MainMenu::update() {
+void MainMenu::update(double dt) {
 	if (currentlyClickedObj) {
 		currentlyClickedObj->onClick();
 		currentlyClickedObj = NULL;

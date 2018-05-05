@@ -5,6 +5,7 @@
 #include "SFML\Graphics.hpp"
 #include "SFML\System.hpp"
 #include "SFML\Window.hpp"
+#include <chrono>
 
 class Engine
 {
@@ -12,10 +13,8 @@ class Engine
 	std::unique_ptr<Game> gameInstance;
 	std::unique_ptr<State> currState;
 
-private:
-
 	void getInput();
-	void update();
+	void update(double dt);
 	void render();
 public:
 	Engine();

@@ -14,7 +14,7 @@ class MainMenu : public State
 	void onStart();
 	void onCredit();
 public:
-	void update() override;
+	void update(double dt) override;
 
 	MainMenu(Engine *engineRef);
 	~MainMenu() {};

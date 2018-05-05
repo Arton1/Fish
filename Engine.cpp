@@ -2,6 +2,8 @@
 #include "MainMenu.h"
 #include "Button.h"
 
+typedef std::chrono::high_resolution_clock Clock;
+
 Engine::Engine()
 {
 	window.create(sf::VideoMode(800, 600), "Ryby");
@@ -10,9 +12,14 @@ Engine::Engine()
 }
 
 void Engine::run() {
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime = Clock::now();
+	std::chrono::duration<double> frametime(0);
 	while (window.isOpen()) {
+		frametime = Clock::now() - lastTime;
+		lastTime = Clock::now();
+//		std::cout << std::chrono::duration_cast<std::chrono::microseconds>(frametime).count() << std::endl;
 		getInput();
-		update();
+		update(std::chrono::duration_cast<std::chrono::microseconds>(frametime).count());
 		render();
 	}
 }
@@ -28,8 +35,8 @@ void Engine::getInput() {
 	}
 }
 
-void Engine::update() {
-	currState->update();
+void Engine::update(double dt) {
+	currState->update(dt);
 }
 
 void Engine::render() {

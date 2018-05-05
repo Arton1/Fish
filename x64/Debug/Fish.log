@@ -1,3 +1,4 @@
-﻿  DrawableGroup.cpp
-c:\users\acer\desktop\fish\drawablegroup.cpp(48): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+﻿  Field.cpp
+c:\users\acer\desktop\fish\field.cpp(23): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(24): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe
