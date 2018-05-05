@@ -9,7 +9,7 @@ class Button : public ClickableObject
 {
 	sf::Text label;
 
-	sf::Vector2f getLabelPositionToSetTo();
+	sf::Vector2f labelPositionToSetTo();
 public:
 	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 	Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<void(void)> &callback);

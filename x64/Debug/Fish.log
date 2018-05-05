@@ -1,5 +1,5 @@
-﻿  Object.cpp
-  DrawableGroup.cpp
-c:\users\acer\desktop\fish\drawablegroup.cpp(52): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  Button.cpp
+c:\users\acer\desktop\fish\button.cpp(43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\acer\desktop\fish\button.cpp(44): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\acer\desktop\fish\button.cpp(45): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

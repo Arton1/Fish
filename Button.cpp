@@ -31,14 +31,19 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setPosition(posX, posY);
 	label.setFont(Engine::getFont());
 	label.setString(txt);
-	label.setPosition(getLabelPositionToSetTo());
+	label.setCharacterSize(30 * body.getTexture()->getSize().y / 100);
+	label.setPosition(labelPositionToSetTo());
+	label.setFillColor(sf::Color::Black);
 	setCallback(callback);
 }
 
-sf::Vector2f Button::getLabelPositionToSetTo()
+sf::Vector2f Button::labelPositionToSetTo()
 {
 	sf::Vector2f position;
-	position.x = body.getPosition().x + body.getTexture()->getSize().x/3;
-	position.y = body.getPosition().y + body.getTexture()->getSize().y/3;
+	int stringSize = label.getString().getSize();
+	float characterXSize = label.getCharacterSize()*8/21;
+	float characterYSize = label.getCharacterSize()*5/4;
+	position.x = body.getPosition().x + body.getTexture()->getSize().x / 2 - characterXSize*stringSize/2;
+	position.y = body.getPosition().y + body.getTexture()->getSize().y / 2 - characterYSize/2;
 	return position;
 }

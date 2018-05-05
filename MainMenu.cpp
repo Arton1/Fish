@@ -1,8 +1,8 @@
 #include "MainMenu.h"
 #include "Engine.h"
 #include "CreditMenu.h"
+#include "PlayState.h"
 #include <SFML\Graphics.hpp>
-#include <iostream>
 
 MainMenu::MainMenu(Engine *engineRef):
 	State(engineRef)
@@ -34,7 +34,7 @@ void MainMenu::onExit() {
 	engineRef->getWindow().close();
 }
 void MainMenu::onStart() {
-
+	engineRef->setState(new PlayState(engineRef));
 }
 void MainMenu::onCredit() {
 	engineRef->setState(new CreditMenu(engineRef));

@@ -57,6 +57,9 @@
     <ClCompile Include="DrawableGroup.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="DrawableGroup.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>States\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
