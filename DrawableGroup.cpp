@@ -7,9 +7,10 @@ DrawableGroup::~DrawableGroup()
 		delete children[i];
 }
 
-void DrawableGroup::add(sf::Drawable *newComponent)
+sf::Drawable* DrawableGroup::add(sf::Drawable *newComponent)
 {
 	children.push_back(newComponent);
+	return newComponent;
 }
 
 void DrawableGroup::remove(sf::Drawable * componentInstance)

@@ -2,8 +2,8 @@
 #include "ClickableObject.h"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 class Button : public ClickableObject
 {
@@ -15,7 +15,9 @@ class Button : public ClickableObject
 public:
 	static bool setFont(std::string location);
 	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
-	Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt);
+	Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<void(void)> &callback);
 	Button();
-	~Button() {};
+	~Button() {
+		std::cout << "Deleted" << std::endl;
+	};
 };

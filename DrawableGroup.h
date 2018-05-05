@@ -10,7 +10,7 @@ protected:
 public:
 	int getSize();
 	void pop_back();
-	void add(sf::Drawable *newComponent);
+	sf::Drawable* add(sf::Drawable *newComponent);
 	void remove(sf::Drawable *componentInstance);
 	bool remove(int index);
 	sf::Drawable& getComponent(int index);

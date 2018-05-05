@@ -27,7 +27,7 @@ void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	target.draw(label);
 }
 
-Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt) {
+Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<void(void)> &callback) {
 	sf::Image image;
 	image.create(sizeX, sizeY);
 	sf::Texture texture;
@@ -38,6 +38,7 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	label.setFont(font);
 	label.setString(txt);
 	label.setPosition(getLabelPositionToSetTo());
+	setCallback(callback);
 }
 
 sf::Vector2f Button::getLabelPositionToSetTo()

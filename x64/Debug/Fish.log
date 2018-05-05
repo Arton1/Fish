@@ -1,1 +1,4 @@
-﻿  Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe
+﻿  CreditMenu.cpp
+c:\users\acer\desktop\fish\creditmenu.cpp(16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\acer\desktop\fish\creditmenu.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

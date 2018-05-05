@@ -14,11 +14,13 @@ class State
 protected:
 	Engine *engineRef;
 	
-	DrawableGroup<> *objects;
-	std::vector<ClickableObject> clickables;
+	DrawableGroup *objects;
+	std::vector<ClickableObject*> clickables;
 	ClickableObject *currentlyClickedObj;
 
 	virtual void createScenery() = 0;
+	void addDrawable(sf::Drawable *object);
+	void addClickable(ClickableObject *clickableObject);
 public:
 	virtual void input(sf::Event &event);
 	virtual void update() = 0;

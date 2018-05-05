@@ -13,12 +13,14 @@ MainMenu::MainMenu(Engine *engineRef):
 void MainMenu::createScenery() {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x / 2, 0);
-	clickables.emplace_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start"));
-	objects->add(&clickables[clickables.size() - 1]);
-	std::function<void()> f = std::bind(&MainMenu::onExit, this);
-	clickables[0].setCallback(f);
-//	clickables.emplace_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit"));
-//	clickables.emplace_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit"));
+	std::function<void()> callback;
+
+	callback = std::bind(&MainMenu::onStart, this);
+	addClickable(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback));
+	callback = std::bind(&MainMenu::onCredit, this);
+	addClickable(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback));
+	callback = std::bind(&MainMenu::onExit, this);
+	addClickable(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback));
 }
 
 void MainMenu::update() {
@@ -26,7 +28,6 @@ void MainMenu::update() {
 		currentlyClickedObj->onClick();
 		currentlyClickedObj = NULL;
 	}
-	std::cout << currentlyClickedObj << std::endl;
 }
 
 void MainMenu::onExit() {
