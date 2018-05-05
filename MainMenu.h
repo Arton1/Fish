@@ -9,13 +9,14 @@
 class MainMenu : public State
 {
 
-	void createScenery();
-	void update();
+	void createScenery() override;
 
 	void onExit();
 	void onStart();
 	void onCredit();
 public:
+	void update() override;
+
 	MainMenu(Engine *engineRef);
 	~MainMenu() {};
 };

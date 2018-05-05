@@ -1,20 +1,16 @@
 #pragma once
 #include "Object.h"
-
-namespace ClickPtr {
-	void defaultClick();
-}
+#include <functional>
 
 class ClickableObject : public Object
 {
 protected:
-	bool gotClicked;
+	std::function<void(void)> callback;
 public:
-	virtual bool isClicked();
-	virtual void setClicked(bool clicked);
+	virtual bool gotClicked(const sf::Vector2f &worldMousePos);
+	virtual void setCallback(std::function<void(void)> &func);
+	virtual void onClick();
 
-	virtual void click(const sf::Vector2f &worldMousePos);
-
-	ClickableObject();
+	ClickableObject() {};
 	virtual ~ClickableObject() {};
 };

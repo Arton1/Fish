@@ -5,7 +5,7 @@
 class ClickableGroup : public DrawableGroup<ClickableObject>
 {
 public:
-	void click(sf::Vector2f &mouseCoords);
+	void gotClicked(sf::Vector2f &mouseCoords);
 	bool isClicked();
 	void setClicked(bool clicked);
 	ClickableGroup() {};

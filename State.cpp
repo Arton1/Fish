@@ -12,8 +12,6 @@ State::State(Engine *engineRef)
 	sf::View view(sf::Vector2f(0, 0), sf::Vector2f(800, 600));
 	engineRef->setView(view);
 	objects = new DrawableGroup<>();
-	clickables = new ClickableGroup();
-	objects->add(clickables);
 }
 
 void State::input(sf::Event &event)
@@ -22,7 +20,9 @@ void State::input(sf::Event &event)
 	case sf::Event::MouseButtonPressed: {
 		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
 		if (event.mouseButton.button == sf::Mouse::Left) {
-			clickables->click(worldCoordsOfMouse);
+			for (int i = 0; i < clickables.size(); i++)
+				if (clickables[i].gotClicked(worldCoordsOfMouse))
+					currentlyClickedObj = &clickables[i];
 		}
 	}
 	}

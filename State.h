@@ -1,6 +1,7 @@
 #pragma once
+#include "ClickableObject.h"
 #include "DrawableGroup.h"
-#include "ClickableGroup.h"
+#include <memory>
 
 class Engine;
 
@@ -12,8 +13,10 @@ class State
 {
 protected:
 	Engine *engineRef;
+	
 	DrawableGroup<> *objects;
-	ClickableGroup *clickables;
+	std::vector<ClickableObject> clickables;
+	ClickableObject *currentlyClickedObj;
 
 	virtual void createScenery() = 0;
 public:

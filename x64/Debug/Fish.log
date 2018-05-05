@@ -1,4 +1,8 @@
-﻿  CreditMenu.cpp
-c:\users\acer\desktop\fish\creditmenu.cpp(16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\acer\desktop\fish\creditmenu.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe
+﻿  ClickableObject.cpp
+  ClickableGroup.cpp
+c:\users\acer\desktop\fish\clickablegroup.cpp(12): error C2039: 'isClicked': is not a member of 'ClickableObject'
+  c:\users\acer\desktop\fish\clickableobject.h(5): note: see declaration of 'ClickableObject'
+c:\users\acer\desktop\fish\clickablegroup.cpp(20): error C2039: 'setClicked': is not a member of 'ClickableObject'
+  c:\users\acer\desktop\fish\clickableobject.h(5): note: see declaration of 'ClickableObject'
+  Generating Code...
+c:\users\acer\desktop\fish\clickableobject.cpp(8): warning C4715: 'ClickableObject::gotClicked': not all control paths return a value
