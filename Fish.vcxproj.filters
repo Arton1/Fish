@@ -25,6 +25,9 @@
     <Filter Include="Object">
       <UniqueIdentifier>{dab9e8d2-8125-4dac-9435-7f40dfc636ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\GameElements">
+      <UniqueIdentifier>{ed42e843-983c-48b6-9164-e86bb0acefe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +63,12 @@
     <ClCompile Include="PlayState.cpp">
       <Filter>States\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h">
@@ -94,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Loader.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

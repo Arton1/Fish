@@ -2,6 +2,7 @@
 #include "Button.h"
 #include "Engine.h"
 #include "MainMenu.h"
+#include "Loader.h"
 
 static const std::string info = 
 	"Created by:\n"
@@ -22,7 +23,7 @@ void CreditMenu::createScenery()
 {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x/2, -buttonSize.y / 2 + 1.75 * buttonSize.y);
-	text = new sf::Text(info, Engine::getFont());
+	text = new sf::Text(info, Loader::getInstance().getFont());
 	text->setFillColor(sf::Color::Black);
 	text->setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
 	addDrawable(text);

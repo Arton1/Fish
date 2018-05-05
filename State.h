@@ -25,7 +25,7 @@ public:
 	virtual void input(sf::Event &event);
 	virtual void update() = 0;
 	virtual void render();
+	void setEngine(Engine *engine) { engineRef = engine; };
 	State(Engine *engineRef);
 	virtual ~State() { delete objects; };
-	void setEngine(Engine *engine) { engineRef = engine; };
 };

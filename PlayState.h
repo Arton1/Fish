@@ -1,15 +1,21 @@
 #pragma once
 #include "State.h"
+#include "Field.h"
+#include <vector>
 
 class Engine;
 
 class PlayState : public State
 {
-	void createScenery();
+	std::vector<std::vector<Field>> area;
 
 	void onExitToMenu();
+
+	void createScenery();
 public:
-	void update();
+//	void input(sf::Event &event) override;
+	void update() override;
+	void render() override;
 	PlayState(Engine *engine);
 	~PlayState();
 };

@@ -2,6 +2,7 @@
 #include "State.h"
 #include "Engine.h"
 #include <SFML\Graphics.hpp>
+#include "Loader.h"
 #include <iostream>
 
 Button::Button()
@@ -29,7 +30,7 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setTexture(texture);
 	body.setColor(color);
 	body.setPosition(posX, posY);
-	label.setFont(Engine::getFont());
+	label.setFont(Loader::getInstance().getFont());
 	label.setString(txt);
 	label.setCharacterSize(30 * body.getTexture()->getSize().y / 100);
 	label.setPosition(labelPositionToSetTo());

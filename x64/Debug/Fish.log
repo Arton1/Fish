@@ -1,5 +1,5 @@
-﻿  Button.cpp
-c:\users\acer\desktop\fish\button.cpp(43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\acer\desktop\fish\button.cpp(44): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\acer\desktop\fish\button.cpp(45): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+﻿  PlayState.cpp
+c:\users\acer\desktop\fish\playstate.cpp(30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(33): warning C4018: '<': signed/unsigned mismatch
+c:\users\acer\desktop\fish\playstate.cpp(35): warning C4018: '<': signed/unsigned mismatch
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

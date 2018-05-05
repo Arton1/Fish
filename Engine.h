@@ -12,9 +12,7 @@ class Engine
 	std::unique_ptr<Game> gameInstance;
 	std::unique_ptr<State> currState;
 
-	static sf::Font font;
 private:
-	void loadFromFiles();
 
 	void getInput();
 	void update();
@@ -26,8 +24,6 @@ public:
 	void run();
 	void setState(State *newState);
 	void setView(const sf::View &view);
-	static sf::Font& getFont();
-	static bool setFont(std::string location);
 
 	sf::Vector2f getWorldCoordsOfMouse();
 

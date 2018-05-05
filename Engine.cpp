@@ -2,13 +2,10 @@
 #include "MainMenu.h"
 #include "Button.h"
 
-sf::Font Engine::font;
-
 Engine::Engine()
 {
 	window.create(sf::VideoMode(800, 600), "Ryby");
 	window.setVerticalSyncEnabled(true);
-	loadFromFiles();
 	setState(new MainMenu(this));
 }
 
@@ -51,22 +48,6 @@ void Engine::setState(State *newState) {
 
 void Engine::setView(const sf::View &view) { 
 	window.setView(view);
-}
-
-sf::Font & Engine::getFont()
-{
-	return font;
-}
-
-void Engine::loadFromFiles()
-{
-	if (!Engine::setFont("Crimson-Roman.ttf"))
-		std::terminate();
-}
-
-bool Engine::setFont(std::string location)
-{
-	return font.loadFromFile(location);
 }
 
 sf::Vector2f Engine::getWorldCoordsOfMouse()
