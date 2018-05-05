@@ -22,7 +22,10 @@ void MainMenu::createScenery() {
 }
 
 void MainMenu::update() {
-	currentlyClickedObj->onClick();
+	if (currentlyClickedObj) {
+		currentlyClickedObj->onClick();
+		currentlyClickedObj = NULL;
+	}
 	std::cout << currentlyClickedObj << std::endl;
 }
 

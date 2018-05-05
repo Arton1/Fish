@@ -3,7 +3,6 @@
 #include "State.h"
 #include "Button.h"
 #include <vector>
-#include "ClickableGroup.h"
 #include "DrawableGroup.h"
 
 class MainMenu : public State
