@@ -9,9 +9,8 @@ protected:
 	std::vector<sf::Drawable*> children;
 public:
 	int getSize();
-	void pop_back();
-	sf::Drawable* add(sf::Drawable *newComponent);
-	void remove(sf::Drawable *componentInstance);
+	sf::Drawable& add(sf::Drawable &newComponent);
+	void remove(sf::Drawable &componentInstance);
 	bool remove(int index);
 	sf::Drawable& getComponent(int index);
 	virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;

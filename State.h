@@ -1,5 +1,5 @@
 #pragma once
-#include "ClickableObject.h"
+#include "Button.h"
 #include "DrawableGroup.h"
 #include <memory>
 
@@ -15,12 +15,12 @@ protected:
 	Engine *engineRef;
 	
 	DrawableGroup *objects;
-	std::vector<ClickableObject*> clickables;
+	std::vector<Button> buttons;
 	ClickableObject *currentlyClickedObj;
 
 	virtual void createScenery() = 0;
-	void addDrawable(sf::Drawable *object);
-	void addClickable(ClickableObject *clickableObject);
+	void addDrawable(sf::Drawable &object);
+	void addButton(Button &clickableObject);
 public:
 	virtual void input(sf::Event &event);
 	virtual void update() = 0;

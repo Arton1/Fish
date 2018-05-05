@@ -13,7 +13,7 @@ class PlayState : public State
 
 	void createScenery();
 public:
-//	void input(sf::Event &event) override;
+	void input(sf::Event &event) override;
 	void update() override;
 	void render() override;
 	PlayState(Engine *engine);

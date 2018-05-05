@@ -27,7 +27,7 @@ void PlayState::createScenery()
 	buttonSize = sf::Vector2f(150, 50);
 	buttonPosition = sf::Vector2f(viewSize.x/2-buttonSize.x-20, viewSize.y/2-buttonSize.y-20);
 	callback = std::bind(&PlayState::onExitToMenu, this);
-	addClickable(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
+	addButton(Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
 
 	sf::Vector2f position;
 	for (int i = 0; i < areaSize.x; i++) {
@@ -35,16 +35,34 @@ void PlayState::createScenery()
 		for (int j = 0; j < areaSize.y; j++) {
 			position.x = i*fieldSize - viewSize.x/2 + 15;
 			position.y = j*fieldSize - viewSize.y/2 + 15;
-			area[i].emplace_back(Field(position));
+			area[i].push_back(Field(position));
 		}
 	}
-
 }
 
-void PlayState::onExitToMenu()
+
+void PlayState::input(sf::Event & event)
 {
-	engineRef->setState(new MainMenu(engineRef));
+	switch (event.type) {
+	case sf::Event::MouseButtonPressed: {
+		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
+		if (event.mouseButton.button == sf::Mouse::Left) {
+			for (int i = 0; i < buttons.size(); i++)
+				if (buttons[i].gotClicked(worldCoordsOfMouse)) {
+					currentlyClickedObj = &buttons[i];
+					return;
+				}
+			for (int i = 0; i < area.size(); i++)
+				for (int j = 0; j < area[i].size(); j++)
+					if (area[i][j].gotClicked(worldCoordsOfMouse)) {
+						currentlyClickedObj = &area[i][j];
+						return;
+					}
+		}
+	}
+	}
 }
+
 
 void PlayState::update()
 {
@@ -57,7 +75,14 @@ void PlayState::update()
 void PlayState::render() {
 	sf::RenderWindow &window = engineRef->getWindow();
 	window.draw(*objects);
+	for (int i = 0; i < buttons.size(); i++)
+		window.draw(buttons[i]);
 	for (int i = 0; i < area.size(); i++)
 		for (int j = 0; j < area[i].size(); j++)
 			window.draw(area[i][j]);
+}
+
+void PlayState::onExitToMenu()
+{
+	engineRef->setState(new MainMenu(engineRef));
 }

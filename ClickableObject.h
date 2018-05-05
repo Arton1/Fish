@@ -12,6 +12,7 @@ public:
 	virtual void setCallback(std::function<void(void)> &func);
 	virtual void onClick();
 
+
 	ClickableObject();
 	virtual ~ClickableObject() {};
 };

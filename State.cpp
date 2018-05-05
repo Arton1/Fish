@@ -3,7 +3,10 @@
 
 void State::render()
 {
-	engineRef->getWindow().draw(*objects);
+	sf::RenderWindow &window = engineRef->getWindow();
+	window.draw(*objects);
+	for (int i = 0; i < buttons.size(); i++)
+		window.draw(buttons[i]);
 }
 
 State::State(Engine *engineRef)
@@ -14,15 +17,14 @@ State::State(Engine *engineRef)
 	objects = new DrawableGroup();
 }
 
-void State::addDrawable(sf::Drawable *object)
+void State::addDrawable(sf::Drawable &object)
 {
 	objects->add(object);
 }
 
-void State::addClickable(ClickableObject * clickableObject)
+void State::addButton(Button &clickableObject)
 {
-	addDrawable(clickableObject);
-	clickables.push_back(clickableObject);
+	buttons.push_back(clickableObject);
 }
 
 void State::input(sf::Event &event)
@@ -31,9 +33,9 @@ void State::input(sf::Event &event)
 	case sf::Event::MouseButtonPressed: {
 		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
 		if (event.mouseButton.button == sf::Mouse::Left) {
-			for (int i = 0; i < clickables.size(); i++)
-				if (clickables[i]->gotClicked(worldCoordsOfMouse))
-					currentlyClickedObj = clickables[i];
+			for (int i = 0; i < buttons.size(); i++)
+				if (buttons[i].gotClicked(worldCoordsOfMouse))
+					currentlyClickedObj = &buttons[i];
 		}
 	}
 	}

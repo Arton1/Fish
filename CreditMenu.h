@@ -5,7 +5,7 @@
 
 class CreditMenu : public State
 {
-	sf::Text *text;
+	sf::Text text;
 
 	void createScenery() override;
 

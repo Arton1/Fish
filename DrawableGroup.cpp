@@ -4,21 +4,17 @@
 
 DrawableGroup::~DrawableGroup()
 {
-	int i = 0;
-	for (; i < children.size(); i++)
-		delete children[i];
-	std::cout << "Items deleted " << i << std::endl;
 }
 
-sf::Drawable* DrawableGroup::add(sf::Drawable *newComponent)
+sf::Drawable& DrawableGroup::add(sf::Drawable &newComponent)
 {
-	children.push_back(newComponent);
+	children.push_back(&newComponent);
 	return newComponent;
 }
 
-void DrawableGroup::remove(sf::Drawable * componentInstance)
+void DrawableGroup::remove(sf::Drawable  &componentInstance)
 {
-	std::vector<Drawable*>::iterator itr = find(children.begin(), children.end(), componentInstance);
+	std::vector<Drawable*>::iterator itr = find(children.begin(), children.end(), &componentInstance);
 	if (itr != children.end())
 	{
 		children.erase(itr);
@@ -50,10 +46,4 @@ void DrawableGroup::draw(sf::RenderTarget & target, sf::RenderStates states) con
 
 int DrawableGroup::getSize() {
 	return children.size();
-}
-
-
-inline void DrawableGroup::pop_back()
-{
-	children.pop_back();
 }

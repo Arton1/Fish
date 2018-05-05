@@ -23,14 +23,14 @@ void CreditMenu::createScenery()
 {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x/2, -buttonSize.y / 2 + 1.75 * buttonSize.y);
-	text = new sf::Text(info, Loader::getInstance().getFont());
-	text->setFillColor(sf::Color::Black);
-	text->setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
+	text = sf::Text(info, Loader::getInstance().getFont());
+	text.setFillColor(sf::Color::Black);
+	text.setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
 	addDrawable(text);
 	
 	std::function<void()> callback;
 	callback = std::bind(&CreditMenu::onExitToMenu, this);
-	addClickable(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
+	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
 }
 
 void CreditMenu::onExitToMenu()
