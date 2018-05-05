@@ -1,10 +1,13 @@
 #include "DrawableGroup.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 DrawableGroup::~DrawableGroup()
 {
-	for (int i = 0; i < children.size(); i++)
+	int i = 0;
+	for (; i < children.size(); i++)
 		delete children[i];
+	std::cout << "Items deleted " << i << std::endl;
 }
 
 sf::Drawable* DrawableGroup::add(sf::Drawable *newComponent)

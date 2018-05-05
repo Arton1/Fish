@@ -2,7 +2,6 @@
 #include <SFML\Graphics\Drawable.hpp>
 #include <SFML\Graphics\Sprite.hpp>
 #include <SFML\Graphics\RenderTarget.hpp>
-
 class Object : public sf::Drawable
 {
 protected:

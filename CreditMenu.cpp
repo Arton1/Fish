@@ -3,6 +3,14 @@
 #include "Engine.h"
 #include "MainMenu.h"
 
+static const std::string info = 
+	"Created by:\n"
+	"Artur Wyrozebski\n"
+	"Student of Electronics and Information Technology Faculty\n"
+	"at University of Technology in Warsaw, Poland\n"
+	"Contact:\n"
+	"arton-10@o2.pl or A.Wyrozebski@elka.pw.edu.pl";
+
 CreditMenu::CreditMenu(Engine *engineRef):
 	State(engineRef)
 {
@@ -14,6 +22,11 @@ void CreditMenu::createScenery()
 {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x/2, -buttonSize.y / 2 + 1.75 * buttonSize.y);
+	text = new sf::Text(info, Engine::getFont());
+	text->setFillColor(sf::Color::Black);
+	text->setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
+	addDrawable(text);
+	
 	std::function<void()> callback;
 	callback = std::bind(&CreditMenu::onExitToMenu, this);
 	addClickable(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));

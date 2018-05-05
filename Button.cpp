@@ -1,9 +1,8 @@
 #include "Button.h"
 #include "State.h"
+#include "Engine.h"
 #include <SFML\Graphics.hpp>
 #include <iostream>
-
-sf::Font Button::font;
 
 Button::Button()
 {
@@ -14,11 +13,6 @@ Button::Button()
 	body.setTexture(texture);
 	body.setColor(sf::Color::Yellow);
 	std::cout << "Created button" << std::endl;
-}
-
-bool Button::setFont(std::string location)
-{
-	return font.loadFromFile(location);
 }
 
 void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
@@ -35,7 +29,7 @@ Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, st
 	body.setTexture(texture);
 	body.setColor(color);
 	body.setPosition(posX, posY);
-	label.setFont(font);
+	label.setFont(Engine::getFont());
 	label.setString(txt);
 	label.setPosition(getLabelPositionToSetTo());
 	setCallback(callback);
