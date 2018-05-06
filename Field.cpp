@@ -6,21 +6,29 @@
 
 Field::Field(sf::Vector2f position):
 	timeElapsed(0),
-	duration(2) 
+	duration(1000),
+	fishInside(false)
 {
 	sf::Texture &texture = Loader::getInstance().getTexture(Loader::Type::water);
 	body.setTexture(texture);
 	color = sf::Color(255, 255, 255);
 	body.getColor();
 	body.setPosition(position);
-	fadingSpeed = 255 / duration; //points per sec
+	fadingSpeed = 255000 / duration.count(); //points per sec
 }
 
 
-bool Field::update(const std::chrono::microseconds & dt)
+void Field::setDuration(const ms &time)
+{
+	duration = time;
+	fadingSpeed = 255000 / duration.count();
+	fishInside = true;
+}
+
+bool Field::update(const us & dt)
 {
 	fade(dt);
-	timeElapsed += (double)dt.count() / 1000000; //seconds
+	timeElapsed += dt;
 	if (timeElapsed >= duration) {
 		reset();
 		return true;
@@ -28,17 +36,23 @@ bool Field::update(const std::chrono::microseconds & dt)
 	return false;
 }
 
-void Field::fade(const std::chrono::microseconds &dt)
+void Field::fade(const us &dt)
 {
-	color.g = 255 - timeElapsed*fadingSpeed;
-	color.b = 255 - timeElapsed*fadingSpeed;
+	color.g = 255 - (double)timeElapsed.count()*fadingSpeed/1000000;
+	color.b = 255 - (double)timeElapsed.count()*fadingSpeed/1000000;
 	body.setColor(color);
+}
+
+bool Field::isFishInside()
+{
+	return this->fishInside;
 }
 
 void Field::reset()
 {
 	body.setColor(sf::Color(255,255,255));
-	timeElapsed = 0;
+	timeElapsed = timeElapsed.zero();
+	fishInside = false;
 }
 
 Field::~Field()

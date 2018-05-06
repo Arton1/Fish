@@ -4,7 +4,8 @@
 
 typedef std::chrono::high_resolution_clock Clock;
 
-Engine::Engine()
+Engine::Engine() :
+	pause(false)
 {
 	window.create(sf::VideoMode(800, 600), "Ryby");
 	window.setVerticalSyncEnabled(true);
@@ -19,7 +20,8 @@ void Engine::run() {
 		lastTime = Clock::now();
 //		std::cout << std::chrono::duration_cast<std::chrono::microseconds>(frametime).count() << std::endl;
 		getInput();
-		update(std::chrono::duration_cast<std::chrono::microseconds>(frametime));
+		if(!pause)
+			update(std::chrono::duration_cast<std::chrono::microseconds>(frametime));
 		render();
 	}
 }

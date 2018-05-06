@@ -9,16 +9,16 @@ long long int Chance::defaultSeed =
 			std::chrono::system_clock::now()))
 				/10000;
 
-Chance::Chance(int min, int max) :
+Chance::Chance(int min, int offset) :
 	min(min),
-	max(max),
+	offset(offset),
 	seed(defaultSeed)
 {
 }
 
-Chance::Chance(long long int &seed, int min, int max) :
+Chance::Chance(long long int &seed, int min, int offset) :
 	min(min),
-	max(max),
+	offset(offset),
 	seed(seed)
 {
 }
@@ -28,13 +28,12 @@ Chance::~Chance()
 }
 
 long long int Chance::getRandomValue() {
-	return (engine() + min) % max;
+	return engine() % offset + min;
 }
 
-long long int Chance::getRandomValue(int min, int max)
+long long int Chance::getRandomValue(int min, int offset)
 {
-	setRange(min, max);
-	return getRandomValue();
+	return engine() % offset + min;
 }
 
 void Chance::setSeed(long long int &seed)
@@ -42,8 +41,8 @@ void Chance::setSeed(long long int &seed)
 	engine.seed(seed);
 }
 
-void Chance::setRange(int min, int max)
+void Chance::setRange(int min, int offset)
 {
 	this->min = min;
-	this->max = max;
+	this->offset = offset;
 }

@@ -30,7 +30,7 @@ void CreditMenu::createScenery()
 	
 	std::function<bool()> callback;
 	callback = std::bind(&CreditMenu::onExitToMenu, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
 }
 
 bool CreditMenu::onExitToMenu()

@@ -17,10 +17,6 @@ PlayState::PlayState(Engine *engine):
 	createScenery();
 }
 
-PlayState::~PlayState()
-{
-}
-
 void PlayState::createScenery()
 {
 	sf::Vector2f viewSize = engineRef->getWindow().getView().getSize();
@@ -31,7 +27,7 @@ void PlayState::createScenery()
 	buttonSize = sf::Vector2f(150, 50);
 	buttonPosition = sf::Vector2f(viewSize.x / 2 - buttonSize.x - 20, viewSize.y / 2 - buttonSize.y - 20);
 	callback = std::bind(&PlayState::onExitToMenu, this);
-	addButton(Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
 
 	sf::Vector2f position;
 	for (int i = 0; i < areaSize.x; i++) {
@@ -96,13 +92,30 @@ bool PlayState::onExitToMenu()
 
 void PlayState::createFish(us dt)
 {
-	if (elpsdTmFrLstTrigger.count() >= 1000) {
-		i = random.getRandomValue(0, areaSize.x);
-		j = random.getRandomValue(0, areaSize.y);
-		fieldsUpdating.push_back(&area[i][j]);
+	if (elpsdTmFrLstTrigger >= nextFishTime) {
+		Field *field;
+		do {
+			int i = random.getRandomValue(0, areaSize.x);
+			int j = random.getRandomValue(0, areaSize.y);
+			field = &area[i][j];
+		} while (field->isFishInside());
+		fieldsUpdating.push_back(field);
+		int time = random.getRandomValue(600, 1100);
+		field->setDuration(milliseconds(time));
 		elpsdTmFrLstTrigger = elpsdTmFrLstTrigger.zero();
+		setNextFishTime();
 	}
-	elpsdTmFrLstTrigger += duration_cast<std::chrono::milliseconds>(dt);
+	elpsdTmFrLstTrigger += duration_cast<milliseconds>(dt);
+}
+
+void PlayState::setNextFishTime()
+{
+	int number = random.getRandomValue(0, 100);
+	if (number < 67)
+		number = random.getRandomValue(300, 500);
+	else
+		number = random.getRandomValue(900, 400);
+	nextFishTime = milliseconds(number);
 }
 
 void PlayState::updateFields(us dt)

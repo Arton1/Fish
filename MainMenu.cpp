@@ -16,11 +16,11 @@ void MainMenu::createScenery() {
 	std::function<bool()> callback;
 
 	callback = std::bind(&MainMenu::onStart, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback);
 	callback = std::bind(&MainMenu::onCredit, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback);
 	callback = std::bind(&MainMenu::onExit, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback);
 }
 
 void MainMenu::update(us dt) {

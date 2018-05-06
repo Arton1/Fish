@@ -12,6 +12,7 @@ class Engine
 	sf::RenderWindow window;
 	std::unique_ptr<Game> gameInstance;
 	std::unique_ptr<State> currState;
+	bool pause;
 
 	void getInput();
 	void update(std::chrono::microseconds dt);
