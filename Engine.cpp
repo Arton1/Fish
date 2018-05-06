@@ -19,7 +19,7 @@ void Engine::run() {
 		lastTime = Clock::now();
 //		std::cout << std::chrono::duration_cast<std::chrono::microseconds>(frametime).count() << std::endl;
 		getInput();
-		update(std::chrono::duration_cast<std::chrono::microseconds>(frametime).count());
+		update(std::chrono::duration_cast<std::chrono::microseconds>(frametime));
 		render();
 	}
 }
@@ -35,7 +35,7 @@ void Engine::getInput() {
 	}
 }
 
-void Engine::update(double dt) {
+void Engine::update(us dt) {
 	currState->update(dt);
 }
 

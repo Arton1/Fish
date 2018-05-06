@@ -69,6 +69,9 @@
     <ClCompile Include="Field.cpp">
       <Filter>Object\GameElements</Filter>
     </ClCompile>
+    <ClCompile Include="Chance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>Object\GameElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Chance.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

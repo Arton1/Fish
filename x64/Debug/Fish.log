@@ -1,4 +1,7 @@
-﻿  Field.cpp
-c:\users\acer\desktop\fish\field.cpp(23): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(24): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
+﻿  PlayState.cpp
+c:\users\acer\desktop\fish\playstate.cpp(34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\acer\desktop\fish\playstate.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\acer\desktop\fish\playstate.cpp(100): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(101): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

@@ -10,11 +10,11 @@ class MainMenu : public State
 
 	void createScenery() override;
 
-	void onExit();
-	void onStart();
-	void onCredit();
+	bool onExit();
+	bool onStart();
+	bool onCredit();
 public:
-	void update(double dt) override;
+	void update(us dt) override;
 
 	MainMenu(Engine *engineRef);
 	~MainMenu() {};

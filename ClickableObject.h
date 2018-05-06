@@ -4,13 +4,13 @@
 
 class ClickableObject : public Object
 {
-	void defaultClick();
+	bool defaultClick();
 protected:
-	std::function<void(void)> callback;
+	std::function<bool(void)> callback;
 public:
 	virtual bool gotClicked(const sf::Vector2f &worldMousePos);
-	virtual void setCallback(std::function<void(void)> &func);
-	virtual void onClick();
+	virtual void setCallback(std::function<bool(void)> &func);
+	virtual bool onClick();
 
 	ClickableObject();
 	virtual ~ClickableObject() {};

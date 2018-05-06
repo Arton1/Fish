@@ -28,17 +28,18 @@ void CreditMenu::createScenery()
 	text.setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
 	addDrawable(text);
 	
-	std::function<void()> callback;
+	std::function<bool()> callback;
 	callback = std::bind(&CreditMenu::onExitToMenu, this);
 	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback));
 }
 
-void CreditMenu::onExitToMenu()
+bool CreditMenu::onExitToMenu()
 {
 	engineRef->setState(new MainMenu(engineRef));
+	return true;
 }
 
-void CreditMenu::update(double dt)
+void CreditMenu::update(us dt)
 {
 	if (currentlyClickedObj) {
 		currentlyClickedObj->onClick();

@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Chance.cpp" />
     <ClCompile Include="ClickableObject.cpp" />
     <ClCompile Include="CreditMenu.cpp" />
     <ClCompile Include="DrawableGroup.cpp" />
@@ -169,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Chance.h" />
     <ClInclude Include="ClickableObject.h" />
     <ClInclude Include="CreditMenu.h" />
     <ClInclude Include="DrawableGroup.h" />

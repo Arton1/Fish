@@ -22,7 +22,7 @@ void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	target.draw(label);
 }
 
-Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<void(void)> &callback) {
+Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<bool(void)> &callback) {
 	sf::Image image;
 	image.create(sizeX, sizeY);
 	sf::Texture texture;

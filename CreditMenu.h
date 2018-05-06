@@ -9,9 +9,9 @@ class CreditMenu : public State
 
 	void createScenery() override;
 
-	void onExitToMenu();
+	bool onExitToMenu();
 public:
-	void update(double dt) override;
+	void update(us dt) override;
 
 	CreditMenu(Engine *engineRef);
 	~CreditMenu();

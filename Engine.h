@@ -14,7 +14,7 @@ class Engine
 	std::unique_ptr<State> currState;
 
 	void getInput();
-	void update(double dt);
+	void update(std::chrono::microseconds dt);
 	void render();
 public:
 	Engine();
