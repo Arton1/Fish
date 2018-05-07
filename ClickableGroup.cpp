@@ -1,23 +1,29 @@
 #include "ClickableGroup.h"
 
-void ClickableGroup::click(sf::Vector2f &mouseCoords)
+Clickable * ClickableGroup::gotClicked(const sf::Vector2f & worldMousePos)
 {
-	for(int i=0; i<children.size(); i++)
-		children[i]->click(mouseCoords);
-}
-
-bool ClickableGroup::isClicked()
-{
-	for (int i = 0; i < children.size(); i++) {
-		if (children[i]->isClicked())
-			return true;
+	Clickable *object;
+	std::vector<std::unique_ptr<Clickable>>::iterator itr;
+	for (itr = children.begin(); itr != children.end(); itr++){
+		object = itr->get()->gotClicked(worldMousePos);
+		if (object)
+			return object;
 	}
 }
 
-void ClickableGroup::setClicked(bool clicked)
+void ClickableGroup::setCallback(std::function<bool(void)>& func)
 {
-	for (int i = 0; i < children.size(); i++)
-		children[i]->setClicked(clicked);
+	std::vector<std::unique_ptr<Clickable>>::iterator itr;
+	for (itr = children.begin(); itr != children.end(); itr++)
+		itr->get()->setCallback(func);
 }
 
-
+bool ClickableGroup::onClick()
+{
+	bool changesState = false;
+	std::vector<std::unique_ptr<Clickable>>::iterator itr;
+	for (itr = children.begin(); itr != children.end(); itr++)
+		if (itr->get()->onClick())
+			changesState = true;
+	return changesState;
+}

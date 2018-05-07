@@ -6,16 +6,20 @@ ClickableObject::ClickableObject()
 	callback = std::bind(&ClickableObject::defaultClick, this);
 }
 
+ClickableObject::~ClickableObject() {}
+
 bool ClickableObject::defaultClick()
 {
 	std::cout << "Clicked" << std::endl;
 	return false;
 }
 
-bool ClickableObject::gotClicked(const sf::Vector2f &worldPos)
+Clickable* ClickableObject::gotClicked(const sf::Vector2f &worldPos)
 {
 	if (body.getGlobalBounds().contains(worldPos.x, worldPos.y))
-		return true;
+		return this;
+	else
+		return NULL;
 }
 
 void ClickableObject::setCallback(std::function<bool(void)> &func)

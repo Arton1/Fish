@@ -1,14 +1,15 @@
 #pragma once
-#include "ClickableObject.h"
+#include "Clickable.h"
 #include "DrawableGroup.h"
 
-class ClickableGroup : public DrawableGroup<ClickableObject>
+class ClickableGroup : public DrawableGroup<Clickable> //Group, Drawable, Clickable
 {
 public:
-	void click(sf::Vector2f &mouseCoords);
-	bool isClicked();
-	void setClicked(bool clicked);
+	virtual Clickable* gotClicked(const sf::Vector2f &worldMousePos);
+	virtual void setCallback(std::function<bool(void)> &func);
+	virtual bool onClick();
 	ClickableGroup() {};
 	~ClickableGroup() {};
 };
 
+typedef ClickableGroup ClickableGrp;

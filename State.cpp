@@ -1,12 +1,12 @@
 #include "State.h"
+#include "DrawableGroup.h"
 #include "Engine.h"
+#include "Button.h"
 
 void State::render()
 {
 	sf::RenderWindow &window = engineRef->getWindow();
 	window.draw(*objects);
-	for (int i = 0; i < buttons.size(); i++)
-		window.draw(buttons[i]);
 }
 
 State::State(Engine *engineRef)
@@ -14,17 +14,21 @@ State::State(Engine *engineRef)
 	setEngine(engineRef);
 	sf::View view(sf::Vector2f(0, 0), sf::Vector2f(800, 600));
 	engineRef->setView(view);
-	objects = new DrawableGroup();
+	objects = std::unique_ptr<DrawableGrp>();
+	clickables = new ClickableGrp();
+	buttons = new ClickableGrp();
+	objects->add(clickables);
+	clickables->add(buttons);
 }
 
-void State::addDrawable(sf::Drawable &object)
+void State::addDrawable(sf::Drawable *object)
 {
 	objects->add(object);
 }
 
-void State::addButton(Button &clickableObject)
+void State::addButton(Button *clickableObject)
 {
-	buttons.push_back(clickableObject);
+	buttons->add(clickableObject);
 }
 
 void State::input(sf::Event &event)
@@ -33,9 +37,7 @@ void State::input(sf::Event &event)
 	case sf::Event::MouseButtonPressed: {
 		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
 		if (event.mouseButton.button == sf::Mouse::Left) {
-			for (int i = 0; i < buttons.size(); i++)
-				if (buttons[i].gotClicked(worldCoordsOfMouse))
-					currentlyClickedObj = &buttons[i];
+				clickedRef = buttons->gotClicked(worldCoordsOfMouse);
 		}
 	}
 	}

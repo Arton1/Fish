@@ -26,11 +26,11 @@ void CreditMenu::createScenery()
 	text = sf::Text(info, Loader::getInstance().getFont());
 	text.setFillColor(sf::Color::Black);
 	text.setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
-	addDrawable(text);
+//	addDrawable(text);
 	
 	std::function<bool()> callback;
 	callback = std::bind(&CreditMenu::onExitToMenu, this);
-	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
+//	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
 }
 
 bool CreditMenu::onExitToMenu()
@@ -41,9 +41,9 @@ bool CreditMenu::onExitToMenu()
 
 void CreditMenu::update(us dt)
 {
-	if (currentlyClickedObj) {
-		currentlyClickedObj->onClick();
-		currentlyClickedObj = NULL;
+	if (clickedRef) {
+		clickedRef->onClick();
+		clickedRef = NULL;
 	}
 }
 

@@ -27,7 +27,7 @@ void PlayState::createScenery()
 	buttonSize = sf::Vector2f(150, 50);
 	buttonPosition = sf::Vector2f(viewSize.x / 2 - buttonSize.x - 20, viewSize.y / 2 - buttonSize.y - 20);
 	callback = std::bind(&PlayState::onExitToMenu, this);
-	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
+//	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
 
 	sf::Vector2f position;
 	for (int i = 0; i < areaSize.x; i++) {
@@ -46,15 +46,15 @@ void PlayState::input(sf::Event & event)
 	case sf::Event::MouseButtonPressed: {
 		sf::Vector2f worldCoordsOfMouse = engineRef->getWorldCoordsOfMouse();
 		if (event.mouseButton.button == sf::Mouse::Left) {
-			for (int i = 0; i < buttons.size(); i++)
-				if (buttons[i].gotClicked(worldCoordsOfMouse)) {
-					currentlyClickedObj = &buttons[i];
-					return;
-				}
+//			for (int i = 0; i < buttons.size(); i++)
+//				if (buttons[i].gotClicked(worldCoordsOfMouse)) {
+//					clickedRef = &buttons[i];
+//					return;
+//				}
 			for (int i = 0; i < area.size(); i++)
 				for (int j = 0; j < area[i].size(); j++)
 					if (area[i][j].gotClicked(worldCoordsOfMouse)) {
-						currentlyClickedObj = &area[i][j];
+						clickedRef = &area[i][j];
 						return;
 					}
 		}
@@ -65,10 +65,10 @@ void PlayState::input(sf::Event & event)
 
 void PlayState::update(us dt)
 {
-	if (currentlyClickedObj) {
-		if(currentlyClickedObj->onClick())
+	if (clickedRef) {
+		if(clickedRef->onClick())
 			return; //have to return if the function causes to move to different state
-		currentlyClickedObj = NULL;
+		clickedRef = NULL;
 	}
 	createFish(dt);
 	updateFields(dt);
@@ -77,11 +77,11 @@ void PlayState::update(us dt)
 void PlayState::render() {
 	sf::RenderWindow &window = engineRef->getWindow();
 	window.draw(*objects);
-	for (int i = 0; i < buttons.size(); i++)
-		window.draw(buttons[i]);
-	for (int i = 0; i < area.size(); i++)
-		for (int j = 0; j < area[i].size(); j++)
-			window.draw(area[i][j]);
+//	for (int i = 0; i < buttons.size(); i++)
+//		window.draw(buttons[i]);
+//	for (int i = 0; i < area.size(); i++)
+//		for (int j = 0; j < area[i].size(); j++)
+//			window.draw(area[i][j]);
 }
 
 bool PlayState::onExitToMenu()

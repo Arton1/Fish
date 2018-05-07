@@ -16,17 +16,17 @@ void MainMenu::createScenery() {
 	std::function<bool()> callback;
 
 	callback = std::bind(&MainMenu::onStart, this);
-	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback);
+	addButton(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback));
 	callback = std::bind(&MainMenu::onCredit, this);
-	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback);
+	addButton(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback));
 	callback = std::bind(&MainMenu::onExit, this);
-	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback);
+	addButton(new Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback));
 }
 
 void MainMenu::update(us dt) {
-	if (currentlyClickedObj) {
-		currentlyClickedObj->onClick();
-		currentlyClickedObj = NULL;
+	if (clickedRef) {
+		clickedRef->onClick();
+		clickedRef = NULL;
 	}
 }
 

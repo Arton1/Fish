@@ -28,6 +28,9 @@
     <Filter Include="Object\GameElements">
       <UniqueIdentifier>{ed42e843-983c-48b6-9164-e86bb0acefe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Composite">
+      <UniqueIdentifier>{c4b32f8a-35b9-4403-8a8a-0baecc008a43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,9 +60,6 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>States\Source</Filter>
     </ClCompile>
-    <ClCompile Include="DrawableGroup.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="PlayState.cpp">
       <Filter>States\Source</Filter>
     </ClCompile>
@@ -71,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="Chance.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickableGroup.cpp">
+      <Filter>Object\Composite</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableGroup.cpp">
+      <Filter>Object\Composite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +107,6 @@
     <ClInclude Include="CreditMenu.h">
       <Filter>States\Header</Filter>
     </ClInclude>
-    <ClInclude Include="DrawableGroup.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>States\Header</Filter>
     </ClInclude>
@@ -115,6 +118,18 @@
     </ClInclude>
     <ClInclude Include="Chance.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableGroup.h">
+      <Filter>Object\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickableGroup.h">
+      <Filter>Object\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Clickable.h">
+      <Filter>Object\Composite</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Object\Composite</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
