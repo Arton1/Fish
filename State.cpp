@@ -18,7 +18,7 @@ State::State(Engine *engineRef)
 	clickables = new ClickableGrp();
 	buttons = new ClickableGrp();
 	objects->add(clickables);
-	clickables->add(buttons);
+	buttons = clickables->add(new ClickableGrp());
 }
 
 void State::addDrawable(sf::Drawable *object)

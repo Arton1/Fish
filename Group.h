@@ -10,7 +10,7 @@ protected:
 public:
 	int getSize();
 	void pop_back();
-	void add(T *newComponent);
+	T* add(T *newComponent);
 //	void add(std::unique_ptr<T> &newComponent);
 	void remove(T *componentInstance);
 	bool remove(int index);
@@ -20,9 +20,10 @@ public:
 
 
 template<class T>
-void Group<T>::add(T *newComponent)
+T* Group<T>::add(T *newComponent)
 {
-	children.emplace_back(newComponent);
+	children.emplace_back(std::move(newComponent));
+	return children.back().get();
 }
 
 /*
