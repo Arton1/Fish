@@ -33,7 +33,7 @@ long long int Chance::getRandomValue() {
 
 long long int Chance::getRandomValue(int min, int offset)
 {
-	return engine() % offset + min;
+	return engine() % (offset+1) + min;
 }
 
 void Chance::setSeed(long long int &seed)

@@ -28,6 +28,9 @@
     <Filter Include="Object\GameElements">
       <UniqueIdentifier>{ed42e843-983c-48b6-9164-e86bb0acefe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\GameElements\Fish">
+      <UniqueIdentifier>{69a45efe-3003-4630-9151-92b2022a4848}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -73,7 +76,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Fish.cpp">
-      <Filter>Object\GameElements</Filter>
+      <Filter>Object\GameElements\Fish</Filter>
+    </ClCompile>
+    <ClCompile Include="RareFish.cpp">
+      <Filter>Object\GameElements\Fish</Filter>
+    </ClCompile>
+    <ClCompile Include="LegendaryFish.cpp">
+      <Filter>Object\GameElements\Fish</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonFish.cpp">
+      <Filter>Object\GameElements\Fish</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,7 +132,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Fish.h">
-      <Filter>Object\GameElements</Filter>
+      <Filter>Object\GameElements\Fish</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFish.h">
+      <Filter>Object\GameElements\Fish</Filter>
+    </ClInclude>
+    <ClInclude Include="RareFish.h">
+      <Filter>Object\GameElements\Fish</Filter>
+    </ClInclude>
+    <ClInclude Include="LegendaryFish.h">
+      <Filter>Object\GameElements\Fish</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

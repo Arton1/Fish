@@ -16,16 +16,15 @@ class Field : public ClickableObject
 	ms duration;
 	double fadingSpeed;
 	std::shared_ptr<Fish> fish;
-
-	void initialize(const Chance &chance);
 	void reset();
 public:
 	Field(sf::Vector2f position);
-
 	void setDuration(const ms &time);
 	bool update(const us &dt); //returns true if have to stop updating
 	void fade(const us &dt);
 	bool isFishInside();
+	void initialize(Chance &random);
+	bool onClick() override;
 	~Field();
 };
 

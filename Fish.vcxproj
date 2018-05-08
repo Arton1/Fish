@@ -156,23 +156,27 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Chance.cpp" />
     <ClCompile Include="ClickableObject.cpp" />
+    <ClCompile Include="CommonFish.cpp" />
     <ClCompile Include="CreditMenu.cpp" />
     <ClCompile Include="DrawableGroup.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="LegendaryFish.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="RareFish.cpp" />
     <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Chance.h" />
     <ClInclude Include="ClickableObject.h" />
+    <ClInclude Include="CommonFish.h" />
     <ClInclude Include="CreditMenu.h" />
     <ClInclude Include="DrawableGroup.h" />
     <ClInclude Include="Engine.h" />
@@ -180,10 +184,12 @@
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="LegendaryFish.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PlayState.h" />
+    <ClInclude Include="RareFish.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

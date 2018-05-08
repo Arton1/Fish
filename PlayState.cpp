@@ -95,13 +95,12 @@ void PlayState::createFish(us dt)
 	if (elpsdTmFrLstTrigger >= nextFishTime) {
 		Field *field;
 		do {
-			int i = random.getRandomValue(0, areaSize.x);
-			int j = random.getRandomValue(0, areaSize.y);
+			int i = random.getRandomValue(0, areaSize.x - 1);
+			int j = random.getRandomValue(0, areaSize.y - 1);
 			field = &area[i][j];
 		} while (field->isFishInside());
+		field->initialize(random);
 		fieldsUpdating.push_back(field);
-		int time = random.getRandomValue(600, 1100);
-		field->setDuration(milliseconds(time));
 		elpsdTmFrLstTrigger = elpsdTmFrLstTrigger.zero();
 		setNextFishTime();
 	}

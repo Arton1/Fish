@@ -1,6 +1,7 @@
 #include "Field.h"
 #include <SFML\Graphics.hpp>
 #include "Loader.h"
+#include "Chance.h"
 #include <chrono>
 #include <iostream>
 
@@ -11,7 +12,6 @@ Field::Field(sf::Vector2f position):
 	sf::Texture &texture = Loader::getInstance().getTexture(Loader::Type::water);
 	body.setTexture(texture);
 	color = sf::Color(255, 255, 255);
-	body.getColor();
 	body.setPosition(position);
 	fadingSpeed = 255000 / duration.count(); //points per sec
 }
@@ -49,20 +49,27 @@ bool Field::isFishInside()
 		return false;
 }
 
-//void Field::initialize(const Chance & chance){
-//	fish = std::unique_ptr<Fish>();
-//}
-
-void Field::initialize(const Chance & chance)
+void Field::initialize(Chance & random)
 {
+	fish = std::shared_ptr<Fish>(new Fish(random));
+	int time = random.getRandomValue(600, 1100);
+	setDuration(std::chrono::milliseconds(time));
+}
+
+bool Field::onClick()
+{
+	if (fish.get())
+		std::cout << fish->getType() << " " << fish->getCost() << std::endl;
+	else
+		std::cout << "Miss" << std::endl;
+	return false;
 }
 
 void Field::reset()
 {
 	body.setColor(sf::Color(255,255,255));
 	timeElapsed = timeElapsed.zero();
-	fishInside = false;
-//	fish.reset();
+	fish.reset();
 }
 
 Field::~Field()

@@ -1,15 +1,15 @@
 #pragma once
+
+class Chance;
+
 class Fish
 {
-public:
-	enum Type {common, rare, epic};
 private:
-	Type type;
 	int cost;
 public:
 	int getCost();
-	Type getType();
+	virtual void setCost(Chance &random) = 0;
 	Fish();
-	~Fish();
+	virtual ~Fish() = 0;
 };
 
