@@ -87,6 +87,9 @@
     <ClCompile Include="CommonFish.cpp">
       <Filter>Object\GameElements\Fish</Filter>
     </ClCompile>
+    <ClCompile Include="FishFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="LegendaryFish.h">
       <Filter>Object\GameElements\Fish</Filter>
+    </ClInclude>
+    <ClInclude Include="FishFactory.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

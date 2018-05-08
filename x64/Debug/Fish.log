@@ -1,18 +1,7 @@
 ﻿  Field.cpp
-c:\users\acer\desktop\fish\field.cpp(16): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(23): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(39): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(40): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(54): error C2259: 'Fish': cannot instantiate abstract class
-  c:\users\acer\desktop\fish\field.cpp(54): note: due to following members:
-  c:\users\acer\desktop\fish\field.cpp(54): note: 'Fish::~Fish(void)': is abstract
-  c:\users\acer\desktop\fish\fish.h(18): note: see declaration of 'Fish::~Fish'
-c:\users\acer\desktop\fish\field.cpp(55): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-  Generating Code...
-  Compiling...
-  Fish.cpp
-c:\users\acer\desktop\fish\fish.cpp(21): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  PlayState.cpp
-  MainMenu.cpp
+c:\users\acer\desktop\fish\field.cpp(18): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(30): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(43): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(44): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(59): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

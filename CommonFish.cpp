@@ -1,9 +1,15 @@
-#include "stdafx.h"
 #include "CommonFish.h"
 
 
-CommonFish::CommonFish()
+void CommonFish::setCost(Chance & random)
 {
+	cost = 1;
+}
+
+CommonFish::CommonFish(Chance & random)
+{
+	type = Type::COMMON;
+	randomizeFish(random);
 }
 
 

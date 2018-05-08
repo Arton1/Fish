@@ -162,6 +162,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="FishFactory.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LegendaryFish.cpp" />
     <ClCompile Include="Loader.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Fish.h" />
+    <ClInclude Include="FishFactory.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="LegendaryFish.h" />

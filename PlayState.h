@@ -17,7 +17,6 @@ class PlayState : public State
 	std::chrono::microseconds nextFishTime;
 
 	bool onExitToMenu();
-	
 	void createScenery();
 	void createFish(us dt);
 	void updateFields(us dt);

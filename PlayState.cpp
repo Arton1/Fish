@@ -4,6 +4,7 @@
 #include "Button.h"
 #include "Loader.h"
 #include <iostream>
+#include <functional>
 
 static const sf::Vector2u areaSize = sf::Vector2u(12, 12);
 static const unsigned fieldSize = Loader::getInstance().getTexture(Loader::Type::water).getSize().x;
@@ -122,9 +123,11 @@ void PlayState::updateFields(us dt)
 	std::list<Field*>::iterator it;
 	int i = 0;
 	for (it = fieldsUpdating.begin(); it != fieldsUpdating.end();) {
-		if ((*it)->update(dt))
+		if ((*it)->stopUpdating())
 			it = fieldsUpdating.erase(it);
-		else
+		else {
+			(*it)->update(dt);
 			it++;
+		}
 	}
 }
