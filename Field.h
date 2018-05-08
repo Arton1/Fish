@@ -1,6 +1,10 @@
 #pragma once
 #include "ClickableObject.h"
 #include <chrono>
+#include "Fish.h"
+#include <memory>
+
+class Chance;
 
 class Field : public ClickableObject
 {
@@ -12,7 +16,9 @@ class Field : public ClickableObject
 	ms duration;
 	double fadingSpeed;
 	bool fishInside;
+	std::unique_ptr<Fish> fish;
 
+	void initialize(const Chance &chance);
 	void reset();
 public:
 	Field(sf::Vector2f position);

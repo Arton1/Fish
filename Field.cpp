@@ -48,6 +48,11 @@ bool Field::isFishInside()
 	return this->fishInside;
 }
 
+void Field::initialize(const Chance & chance)
+{
+	fish = std::unique_ptr<Fish>();
+}
+
 void Field::reset()
 {
 	body.setColor(sf::Color(255,255,255));
