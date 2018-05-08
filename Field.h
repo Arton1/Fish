@@ -15,8 +15,7 @@ class Field : public ClickableObject
 	us timeElapsed;
 	ms duration;
 	double fadingSpeed;
-	bool fishInside;
-	std::unique_ptr<Fish> fish;
+	std::shared_ptr<Fish> fish;
 
 	void initialize(const Chance &chance);
 	void reset();

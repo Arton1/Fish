@@ -6,8 +6,7 @@
 
 Field::Field(sf::Vector2f position):
 	timeElapsed(0),
-	duration(1000),
-	fishInside(false)
+	duration(1000)
 {
 	sf::Texture &texture = Loader::getInstance().getTexture(Loader::Type::water);
 	body.setTexture(texture);
@@ -22,7 +21,6 @@ void Field::setDuration(const ms &time)
 {
 	duration = time;
 	fadingSpeed = 255000 / duration.count();
-	fishInside = true;
 }
 
 bool Field::update(const us & dt)
@@ -45,12 +43,18 @@ void Field::fade(const us &dt)
 
 bool Field::isFishInside()
 {
-	return this->fishInside;
+	if (fish.get())
+		return true;
+	else
+		return false;
 }
+
+//void Field::initialize(const Chance & chance){
+//	fish = std::unique_ptr<Fish>();
+//}
 
 void Field::initialize(const Chance & chance)
 {
-	fish = std::unique_ptr<Fish>();
 }
 
 void Field::reset()
@@ -58,6 +62,7 @@ void Field::reset()
 	body.setColor(sf::Color(255,255,255));
 	timeElapsed = timeElapsed.zero();
 	fishInside = false;
+//	fish.reset();
 }
 
 Field::~Field()

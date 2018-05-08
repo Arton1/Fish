@@ -1,2 +1,66 @@
-﻿  LINK : C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe not found or not built by the last incremental link; performing full link
+﻿  Field.cpp
+c:\users\acer\desktop\fish\field.cpp(17): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(24): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(41): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
+c:\users\acer\desktop\fish\field.cpp(42): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
+  Generating Code...
+  Compiling...
+  PlayState.cpp
+c:\users\acer\desktop\fish\playstate.cpp(33): warning C4018: '<': signed/unsigned mismatch
+c:\users\acer\desktop\fish\playstate.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\acer\desktop\fish\playstate.cpp(98): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(99): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(103): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(113): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(115): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\playstate.cpp(117): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  c:\users\acer\desktop\fish\playstate.cpp(30): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Ty=Button,
+              T=float
+          ]
+  MainMenu.cpp
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  c:\users\acer\desktop\fish\mainmenu.cpp(19): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Ty=Button,
+              T=float
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe
