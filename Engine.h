@@ -29,5 +29,8 @@ public:
 
 	Game& getGameInstance() const;
 	sf::RenderWindow& getWindow();
+public:
+	static const int windowSizeX;
+	static const int windowSizeY;
 };
 

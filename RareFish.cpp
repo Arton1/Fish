@@ -1,6 +1,11 @@
 #include "RareFish.h"
 
 
+std::string RareFish::getTypeString()
+{
+	return "Rare";
+}
+
 void RareFish::setCost(Chance & random)
 {
 	cost = 10;
@@ -13,7 +18,6 @@ void RareFish::setDuration(Chance & random)
 
 RareFish::RareFish(Chance &random)
 {
-	type = Type::RARE;
 	randomizeFish(random);
 }
 

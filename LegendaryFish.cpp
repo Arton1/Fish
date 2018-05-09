@@ -1,6 +1,11 @@
 #include "LegendaryFish.h"
 
 
+std::string LegendaryFish::getTypeString()
+{
+	return "Legend";
+}
+
 void LegendaryFish::setCost(Chance & random)
 {
 	cost = 100;
@@ -13,7 +18,6 @@ void LegendaryFish::setDuration(Chance & random)
 
 LegendaryFish::LegendaryFish(Chance &random)
 {
-	type = Type::LEGENDARY;
 	randomizeFish(random);
 }
 

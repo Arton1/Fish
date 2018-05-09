@@ -23,6 +23,11 @@ bool Field::stopUpdating()
 	return stopUpdate;
 }
 
+inline void Field::setFadingSpeed()
+{
+	fadingSpeed = 255000 / fish->getDuration().count();
+}
+
 void Field::update(const us & dt)
 {
 	fade(dt);
@@ -49,7 +54,7 @@ bool Field::isFishInside()
 void Field::initialize(Chance & random)
 {
 	fish = std::shared_ptr<Fish>(FishFactory::createFish(random));
-	fadingSpeed = 255000 / fish->getDuration().count();
+	setFadingSpeed();
 	stopUpdate = false;
 }
 

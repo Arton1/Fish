@@ -2,6 +2,7 @@
 #include "State.h"
 #include "Field.h"
 #include "Chance.h"
+#include <SFML\Graphics\Text.hpp>
 #include <vector>
 #include <list>
 
@@ -11,6 +12,9 @@ class PlayState : public State
 {
 	std::vector<std::vector<Field>> area;
 	std::list<Field*> fieldsUpdating;
+
+	sf::Text topRightText;
+	std::list<sf::Text> clickedFishInfo;
 
 	Chance random;
 	std::chrono::milliseconds elpsdTmFrLstTrigger;
@@ -22,6 +26,9 @@ class PlayState : public State
 	void createFish(us dt);
 	void updateFields(us dt);
 	void setNextFishTime();
+
+	void addClickedFishInfo(Fish &fishRef);
+	void refreshClickedFishInfo();
 public:
 	void input(sf::Event &event) override;
 	void update(us dt) override;

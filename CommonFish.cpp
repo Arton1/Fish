@@ -1,6 +1,11 @@
 #include "CommonFish.h"
 
 
+std::string CommonFish::getTypeString()
+{
+	return "Common";
+}
+
 void CommonFish::setCost(Chance & random)
 {
 	cost = 1;
@@ -13,7 +18,6 @@ void CommonFish::setDuration(Chance & random)
 
 CommonFish::CommonFish(Chance & random)
 {
-	type = Type::COMMON;
 	randomizeFish(random);
 }
 

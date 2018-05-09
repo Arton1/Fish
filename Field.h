@@ -24,6 +24,7 @@ class Field : public ClickableObject
 public:
 	Field(sf::Vector2f position);
 	bool stopUpdating();
+	inline void setFadingSpeed();
 	void update(const us &dt); 
 	void fade(const us &dt);
 	bool isFishInside();

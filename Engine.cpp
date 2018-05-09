@@ -4,10 +4,13 @@
 
 typedef std::chrono::high_resolution_clock Clock;
 
+const int Engine::windowSizeX = 800;
+const int Engine::windowSizeY = 600;
+
 Engine::Engine() :
 	pause(false)
 {
-	window.create(sf::VideoMode(800, 600), "Ryby");
+	window.create(sf::VideoMode(windowSizeX, windowSizeY), "Ryby", sf::Style::Titlebar | sf::Style::Close);
 	window.setVerticalSyncEnabled(true);
 	setState(new MainMenu(this));
 }

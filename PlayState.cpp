@@ -6,9 +6,11 @@
 #include <iostream>
 #include <functional>
 #include "Fish.h"
+#include <sstream>
 
 static const sf::Vector2u areaSize = sf::Vector2u(12, 12);
 static const unsigned fieldSize = Loader::getInstance().getTexture(Loader::Type::water).getSize().x;
+static const sf::Vector2f clickedFishInfoPosition = sf::Vector2f(Engine::windowSizeX/4, -Engine::windowSizeY/2 + 65);
 
 using namespace std::chrono;
 
@@ -25,6 +27,10 @@ void PlayState::createScenery()
 	sf::Vector2f buttonSize;
 	sf::Vector2f buttonPosition;
 	std::function<bool()> callback;
+	
+	topRightText = sf::Text("Last 3 fishes info:\nType, Value", Loader::getInstance().getFont(), 20);
+	topRightText.setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y - 55);
+	topRightText.setFillColor(sf::Color::Black);
 
 	buttonSize = sf::Vector2f(150, 50);
 	buttonPosition = sf::Vector2f(viewSize.x / 2 - buttonSize.x - 20, viewSize.y / 2 - buttonSize.y - 20);
@@ -82,11 +88,16 @@ void PlayState::update(us dt)
 void PlayState::render() {
 	sf::RenderWindow &window = engineRef->getWindow();
 	window.draw(*objects);
-	for (int i = 0; i < buttons.size(); i++)
-		window.draw(buttons[i]);
-	for (int i = 0; i < area.size(); i++)
-		for (int j = 0; j < area[i].size(); j++)
-			window.draw(area[i][j]);
+	for (auto itr = buttons.begin(); itr != buttons.end(); itr++)
+		window.draw(*itr);
+	for (auto itr = area.begin(); itr != area.end(); itr++)
+		for (auto iter = itr->begin(); iter != itr->end(); iter++)
+			window.draw(*iter);
+	if(clickedFishInfo.size())
+		window.draw(clickedFishInfo.front());
+	for (auto itr = clickedFishInfo.begin(); itr != clickedFishInfo.end(); itr++)
+		window.draw(*itr);
+	window.draw(topRightText);
 }
 
 bool PlayState::onExitToMenu()
@@ -97,8 +108,9 @@ bool PlayState::onExitToMenu()
 
 bool PlayState::onFieldClicked(Fish *fishRef)
 {
-	if (fishRef)
-		std::cout << fishRef->getType() << " " << fishRef->getCost() << std::endl;
+	if (fishRef) {
+		addClickedFishInfo(*fishRef);
+	}
 	else
 		std::cout << "Miss" << std::endl;
 	return false;
@@ -129,6 +141,29 @@ void PlayState::setNextFishTime()
 	else
 		number = random.getRandomValue(900, 400);
 	nextFishTime = milliseconds(number);
+}
+
+void PlayState::addClickedFishInfo(Fish & fishRef)
+{
+	std::string text;
+	sf::Font &font = Loader::getInstance().getFont();
+	std::stringstream stream;
+	stream << fishRef.getTypeString() << " " << fishRef.getCost();
+	text = stream.str();
+	clickedFishInfo.emplace_front(text, font, 20);
+	clickedFishInfo.front().setFillColor(sf::Color::Black);
+	refreshClickedFishInfo();
+}
+
+void PlayState::refreshClickedFishInfo()
+{
+	if (clickedFishInfo.size() > 3)
+		clickedFishInfo.pop_back();
+	std::list<sf::Text>::iterator itr;
+	int i;
+	for (itr = clickedFishInfo.begin(), i = 0; itr != clickedFishInfo.end(); itr++, i++) {
+		itr->setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y + 25 * i);
+	}
 }
 
 void PlayState::updateFields(us dt)

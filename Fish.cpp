@@ -16,11 +16,6 @@ int Fish::getCost()
 	return cost;
 }
 
-Fish::Type Fish::getType()
-{
-	return type;
-}
-
 std::chrono::milliseconds Fish::getDuration()
 {
 	return duration;

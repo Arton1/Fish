@@ -1,9 +1,5 @@
-﻿  Field.cpp
-c:\users\acer\desktop\fish\field.cpp(36): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(37): warning C4244: '=': conversion from 'double' to 'sf::Uint8', possible loss of data
-c:\users\acer\desktop\fish\field.cpp(52): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+﻿  RareFish.cpp
+  LegendaryFish.cpp
+  CommonFish.cpp
   Generating Code...
-  Skipping... (no relevant changes detected)
-  PlayState.cpp
-  MainMenu.cpp
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe

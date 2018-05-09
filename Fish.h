@@ -1,24 +1,18 @@
 #pragma once
 #include <chrono>
+#include <string>
 
 class Chance;
 
 class Fish
 {
-public:
-	enum Type {
-		COMMON,
-		RARE,
-		LEGENDARY
-	};
 protected:
-	Type type;
 	int cost;
 	std::chrono::milliseconds duration;
 public:
 	Fish();
 	int getCost();
-	Type getType();
+	virtual std::string getTypeString() = 0;
 	std::chrono::milliseconds getDuration();
 	virtual void setCost(Chance &random) = 0;
 	virtual void setDuration(Chance &random) = 0;
