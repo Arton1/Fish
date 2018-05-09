@@ -5,6 +5,8 @@
 
 class CreditMenu : public State
 {
+	static const char *info[];
+
 	void createScenery() override;
 
 	bool onExitToMenu();
