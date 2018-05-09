@@ -2,6 +2,11 @@
 
 const int Game::maxMoney = 5000;
 
+int Game::getMoney()
+{
+	return money;
+}
+
 bool Game::addMoney(int value)
 {
 	if (money < maxMoney) {
@@ -19,7 +24,8 @@ bool Game::substractMoney(int value)
 	return true;
 }
 
-Game::Game()
+Game::Game():
+	money(0)
 {
 }
 

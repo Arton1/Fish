@@ -35,7 +35,7 @@ bool MainMenu::onExit() {
 	return true;
 }
 bool MainMenu::onStart() {
-	engineRef->setState(new PlayState(engineRef));
+	engineRef->setState(new PlayState(engineRef, NULL));
 	return true;
 }
 bool MainMenu::onCredit() {

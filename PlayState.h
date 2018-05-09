@@ -1,4 +1,5 @@
 #pragma once
+#include "Game.h"
 #include "State.h"
 #include "Field.h"
 #include "Chance.h"
@@ -10,11 +11,15 @@ class Engine;
 
 class PlayState : public State
 {
+	std::unique_ptr<Game> gameInstance;
+
 	std::vector<std::vector<Field>> area;
 	std::list<Field*> fieldsUpdating;
 
-	sf::Text topRightText;
+	sf::Text LastFishesText;
 	std::list<sf::Text> clickedFishInfo;
+	sf::Text moneyText;
+	sf::Text moneyInfo;
 
 	Chance random;
 	std::chrono::milliseconds elpsdTmFrLstTrigger;
@@ -29,11 +34,12 @@ class PlayState : public State
 
 	void addClickedFishInfo(Fish &fishRef);
 	void refreshClickedFishInfo();
+	void refreshMoneyInfo();
 public:
 	void input(sf::Event &event) override;
 	void update(us dt) override;
 	void render() override;
-	PlayState(Engine *engine);
-	~PlayState() { };
+	PlayState(Engine *engine, Game *gameRef);
+	~PlayState();
 };
 

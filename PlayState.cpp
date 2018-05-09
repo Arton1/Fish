@@ -10,15 +10,25 @@
 
 static const sf::Vector2u areaSize = sf::Vector2u(12, 12);
 static const unsigned fieldSize = Loader::getInstance().getTexture(Loader::Type::water).getSize().x;
-static const sf::Vector2f clickedFishInfoPosition = sf::Vector2f(Engine::windowSizeX/5+45, -Engine::windowSizeY/2 + 265);
+static const sf::Vector2f clickedFishInfoPosition = sf::Vector2f(Engine::windowSizeX/5 + 35, -Engine::windowSizeY/2 + 265);
+static const sf::Vector2f moneyInfoPosition = sf::Vector2f(Engine::windowSizeX / 5 + 35, -Engine::windowSizeY / 2 + 25);
 
 using namespace std::chrono;
 
-PlayState::PlayState(Engine *engine):
+PlayState::PlayState(Engine *engine, Game *gameRef) :
 	State(engine),
 	random(0, 100)
 {
+		if (gameRef)
+			gameInstance = std::unique_ptr<Game>(gameRef);
+		else
+			gameInstance = std::unique_ptr<Game>(new Game());
 	createScenery();
+}
+
+PlayState::~PlayState()
+{
+	
 }
 
 void PlayState::createScenery()
@@ -28,9 +38,18 @@ void PlayState::createScenery()
 	sf::Vector2f buttonPosition;
 	std::function<bool()> callback;
 	
-	topRightText = sf::Text("Last 3 fishes info:", Loader::getInstance().getFont(), 20);
-	topRightText.setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y - 25);
-	topRightText.setFillColor(sf::Color::Black);
+	LastFishesText = sf::Text("Last 3 fishes info:", Loader::getInstance().getFont(), 25);
+	LastFishesText.setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y);
+	LastFishesText.setFillColor(sf::Color::Black);
+	moneyText.setString("Current money:");
+	moneyText.setFont(Loader::getInstance().getFont());
+	moneyText.setCharacterSize(25);
+	moneyText.setPosition(moneyInfoPosition);
+	moneyText.setFillColor(sf::Color::Black);
+	moneyInfo.setFont(Loader::getInstance().getFont());
+	moneyInfo.setCharacterSize(25);
+	moneyInfo.setFillColor(sf::Color::Black);
+	refreshMoneyInfo();
 
 	buttonSize = sf::Vector2f(150, 50);
 	buttonPosition = sf::Vector2f(viewSize.x / 2 - buttonSize.x - 20, viewSize.y / 2 - buttonSize.y - 20);
@@ -97,7 +116,9 @@ void PlayState::render() {
 		window.draw(clickedFishInfo.front());
 	for (auto itr = clickedFishInfo.begin(); itr != clickedFishInfo.end(); itr++)
 		window.draw(*itr);
-	window.draw(topRightText);
+	window.draw(LastFishesText);
+	window.draw(moneyText);
+	window.draw(moneyInfo);
 }
 
 bool PlayState::onExitToMenu()
@@ -110,6 +131,8 @@ bool PlayState::onFieldClicked(Fish *fishRef)
 {
 	if (fishRef) {
 		addClickedFishInfo(*fishRef);
+		gameInstance->addMoney(fishRef->getCost());
+		refreshMoneyInfo();
 	}
 	else
 		std::cout << "Miss" << std::endl;
@@ -150,7 +173,7 @@ void PlayState::addClickedFishInfo(Fish & fishRef)
 	std::stringstream stream;
 	stream << fishRef.getTypeString() << " " << fishRef.getCost();
 	text = stream.str();
-	clickedFishInfo.emplace_front(text, font, 20);
+	clickedFishInfo.emplace_front(text, font, 25);
 	clickedFishInfo.front().setFillColor(sf::Color::Black);
 	refreshClickedFishInfo();
 }
@@ -161,9 +184,19 @@ void PlayState::refreshClickedFishInfo()
 		clickedFishInfo.pop_back();
 	std::list<sf::Text>::iterator itr;
 	int i;
-	for (itr = clickedFishInfo.begin(), i = 0; itr != clickedFishInfo.end(); itr++, i++) {
+	for (itr = clickedFishInfo.begin(), i = 1; itr != clickedFishInfo.end(); itr++, i++) {
 		itr->setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y + 25 * i);
 	}
+}
+
+void PlayState::refreshMoneyInfo()
+{
+	std::string text;
+	std::stringstream stream;
+	stream << gameInstance->getMoney();
+	stream >> text;
+	moneyInfo.setString(text);
+	moneyInfo.setPosition(moneyInfoPosition.x, moneyInfoPosition.y + 30);
 }
 
 void PlayState::updateFields(us dt)

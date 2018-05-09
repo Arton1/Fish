@@ -1,6 +1,5 @@
 #pragma once
 #include "Global.h"
-#include "Game.h"
 #include "State.h"
 #include "SFML\Graphics.hpp"
 #include "SFML\System.hpp"
@@ -10,7 +9,6 @@
 class Engine
 {
 	sf::RenderWindow window;
-	std::unique_ptr<Game> gameInstance;
 	std::unique_ptr<State> currState;
 	bool pause;
 
@@ -27,7 +25,6 @@ public:
 
 	sf::Vector2f getWorldCoordsOfMouse();
 
-	Game& getGameInstance() const;
 	sf::RenderWindow& getWindow();
 public:
 	static const int windowSizeX;

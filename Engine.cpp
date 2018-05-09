@@ -69,10 +69,6 @@ sf::Vector2f Engine::getWorldCoordsOfMouse()
 	return worldPos;
 }
 
-Game& Engine::getGameInstance() const {
-	return *gameInstance.get();
-}
-
 sf::RenderWindow& Engine::getWindow() { 
 	return window;
 }
