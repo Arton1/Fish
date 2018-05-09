@@ -2,14 +2,15 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <vector>
 #include <algorithm>
+#include <memory>
 
 class DrawableGroup : public sf::Drawable
 {
 protected:
-	std::vector<sf::Drawable*> children;
+	std::vector<std::unique_ptr<Drawable>> children;
 public:
 	int getSize();
-	sf::Drawable& add(sf::Drawable &newComponent);
+	sf::Drawable& add(sf::Drawable *newComponent);
 	void remove(sf::Drawable &componentInstance);
 	bool remove(int index);
 	sf::Drawable& getComponent(int index);

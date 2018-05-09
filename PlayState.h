@@ -16,9 +16,7 @@ class PlayState : public State
 	std::vector<std::vector<Field>> area;
 	std::list<Field*> fieldsUpdating;
 
-	sf::Text LastFishesText;
 	std::list<sf::Text> clickedFishInfo;
-	sf::Text moneyText;
 	sf::Text moneyInfo;
 
 	Chance random;

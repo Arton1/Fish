@@ -23,9 +23,9 @@ void CreditMenu::createScenery()
 {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x/2, -buttonSize.y / 2 + 1.75 * buttonSize.y);
-	text = sf::Text(info, Loader::getInstance().getFont());
-	text.setFillColor(sf::Color::Black);
-	text.setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
+	sf::Text *text = new sf::Text(info, Loader::getInstance().getFont());
+	text->setFillColor(sf::Color::Black);
+	text->setPosition(-engineRef->getWindow().getView().getSize().x / 2+50, -engineRef->getWindow().getView().getSize().y / 2+50);
 	addDrawable(text);
 	
 	std::function<bool()> callback;

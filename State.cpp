@@ -4,7 +4,7 @@
 void State::render()
 {
 	sf::RenderWindow &window = engineRef->getWindow();
-	window.draw(*objects);
+	window.draw(decorations);
 	for (int i = 0; i < buttons.size(); i++)
 		window.draw(buttons[i]);
 }
@@ -14,12 +14,11 @@ State::State(Engine *engineRef)
 	setEngine(engineRef);
 	sf::View view(sf::Vector2f(0, 0), sf::Vector2f(800, 600));
 	engineRef->setView(view);
-	objects = new DrawableGroup();
 }
 
-void State::addDrawable(sf::Drawable &object)
+void State::addDrawable(sf::Drawable *object)
 {
-	objects->add(object);
+	decorations.add(object);
 }
 
 void State::addButton(Button &clickableObject)

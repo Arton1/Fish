@@ -16,12 +16,12 @@ class State
 protected:
 	Engine *engineRef;
 	
-	DrawableGroup *objects;
+	DrawableGroup decorations;
 	std::vector<Button> buttons;
 	ClickableObject *currentlyClickedObj;
 
 	virtual void createScenery() = 0;
-	void addDrawable(sf::Drawable &object);
+	void addDrawable(sf::Drawable *object);
 	void addButton(Button &clickableObject);
 public:
 	virtual void input(sf::Event &event);
@@ -29,5 +29,5 @@ public:
 	virtual void render();
 	void setEngine(Engine *engine) { engineRef = engine; };
 	State(Engine *engineRef);
-	virtual ~State() { delete objects; };
+	virtual ~State() {};
 };

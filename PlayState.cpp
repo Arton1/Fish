@@ -38,15 +38,16 @@ void PlayState::createScenery()
 	sf::Vector2f buttonPosition;
 	std::function<bool()> callback;
 	
-	LastFishesText = sf::Text("Last 3 fishes info:", Loader::getInstance().getFont(), 25);
-	LastFishesText.setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y);
-	LastFishesText.setFillColor(sf::Color::Black);
-	moneyText.setString("Current money:");
-	moneyText.setFont(Loader::getInstance().getFont());
-	moneyText.setCharacterSize(25);
-	moneyText.setPosition(moneyInfoPosition);
-	moneyText.setFillColor(sf::Color::Black);
+	sf::Text *lastFishesText = new sf::Text("Last 3 fishes info:", Loader::getInstance().getFont(), 25);
+	lastFishesText->setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y);
+	lastFishesText->setFillColor(sf::Color::Black);
+	addDrawable(lastFishesText);
+	sf::Text *moneyText = new sf::Text("Current money:", Loader::getInstance().getFont(), 25);
+	moneyText->setPosition(moneyInfoPosition);
+	moneyText->setFillColor(sf::Color::Black);
+	addDrawable(moneyText);
 	moneyInfo.setFont(Loader::getInstance().getFont());
+	moneyInfo.setPosition(moneyInfoPosition.x, moneyInfoPosition.y + 30);
 	moneyInfo.setCharacterSize(25);
 	moneyInfo.setFillColor(sf::Color::Black);
 	refreshMoneyInfo();
@@ -106,7 +107,7 @@ void PlayState::update(us dt)
 
 void PlayState::render() {
 	sf::RenderWindow &window = engineRef->getWindow();
-	window.draw(*objects);
+	window.draw(decorations);
 	for (auto itr = buttons.begin(); itr != buttons.end(); itr++)
 		window.draw(*itr);
 	for (auto itr = area.begin(); itr != area.end(); itr++)
@@ -116,8 +117,6 @@ void PlayState::render() {
 		window.draw(clickedFishInfo.front());
 	for (auto itr = clickedFishInfo.begin(); itr != clickedFishInfo.end(); itr++)
 		window.draw(*itr);
-	window.draw(LastFishesText);
-	window.draw(moneyText);
 	window.draw(moneyInfo);
 }
 
@@ -134,8 +133,6 @@ bool PlayState::onFieldClicked(Fish *fishRef)
 		gameInstance->addMoney(fishRef->getCost());
 		refreshMoneyInfo();
 	}
-	else
-		std::cout << "Miss" << std::endl;
 	return false;
 }
 
