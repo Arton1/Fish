@@ -10,7 +10,7 @@
 
 static const sf::Vector2u areaSize = sf::Vector2u(12, 12);
 static const unsigned fieldSize = Loader::getInstance().getTexture(Loader::Type::water).getSize().x;
-static const sf::Vector2f clickedFishInfoPosition = sf::Vector2f(Engine::windowSizeX/4, -Engine::windowSizeY/2 + 65);
+static const sf::Vector2f clickedFishInfoPosition = sf::Vector2f(Engine::windowSizeX/5+45, -Engine::windowSizeY/2 + 265);
 
 using namespace std::chrono;
 
@@ -28,8 +28,8 @@ void PlayState::createScenery()
 	sf::Vector2f buttonPosition;
 	std::function<bool()> callback;
 	
-	topRightText = sf::Text("Last 3 fishes info:\nType, Value", Loader::getInstance().getFont(), 20);
-	topRightText.setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y - 55);
+	topRightText = sf::Text("Last 3 fishes info:", Loader::getInstance().getFont(), 20);
+	topRightText.setPosition(clickedFishInfoPosition.x, clickedFishInfoPosition.y - 25);
 	topRightText.setFillColor(sf::Color::Black);
 
 	buttonSize = sf::Vector2f(150, 50);
