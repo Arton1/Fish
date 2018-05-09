@@ -48,3 +48,12 @@ sf::Vector2f Button::labelPositionToSetTo()
 	position.y = body.getPosition().y + body.getTexture()->getSize().y / 2 - characterYSize/2;
 	return position;
 }
+
+void Button::setCallback(std::function<bool(void)> &func)
+{
+	callback = func;
+}
+
+bool Button::onClick() {
+	return callback();
+}

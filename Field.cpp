@@ -6,16 +6,16 @@
 #include <chrono>
 #include <iostream>
 
+std::function<bool(Fish*)> Field::callback;
+
 Field::Field(sf::Vector2f position):
 	timeElapsed(0),
-	duration(1000),
 	stopUpdate(true)
 {
 	sf::Texture &texture = Loader::getInstance().getTexture(Loader::Type::water);
 	body.setTexture(texture);
 	color = sf::Color(255, 255, 255);
 	body.setPosition(position);
-	fadingSpeed = 255000 / duration.count(); //points per sec
 }
 
 bool Field::stopUpdating()
@@ -23,18 +23,11 @@ bool Field::stopUpdating()
 	return stopUpdate;
 }
 
-
-void Field::setDuration(const ms &time)
-{
-	duration = time;
-	fadingSpeed = 255000 / duration.count();
-}
-
 void Field::update(const us & dt)
 {
 	fade(dt);
 	timeElapsed += dt;
-	if (timeElapsed >= duration)
+	if (timeElapsed >= fish->getDuration())
 		reset();
 }
 
@@ -56,20 +49,29 @@ bool Field::isFishInside()
 void Field::initialize(Chance & random)
 {
 	fish = std::shared_ptr<Fish>(FishFactory::createFish(random));
-	int time = random.getRandomValue(600, 1100);
-	setDuration(std::chrono::milliseconds(time));
+	fadingSpeed = 255000 / fish->getDuration().count();
 	stopUpdate = false;
+}
+
+Fish & Field::getFish()
+{
+	return *fish.get();
 }
 
 bool Field::onClick()
 {
 	if (fish.get()) {
-		std::cout << fish->getType() << " " << fish->getCost() << std::endl;
+		callback(fish.get());
 		reset();
 	}
 	else
-		std::cout << "Miss" << std::endl;
+		callback(NULL);
 	return false;
+}
+
+void Field::setCallback(std::function<bool(Fish*)> func)
+{
+	callback = func;
 }
 
 void Field::reset()

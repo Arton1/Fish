@@ -6,6 +6,7 @@ Fish::Fish() {}
 void Fish::randomizeFish(Chance & random)
 {
 	setCost(random);
+	setDuration(random);
 }
 
 Fish::~Fish() {}
@@ -18,4 +19,9 @@ int Fish::getCost()
 Fish::Type Fish::getType()
 {
 	return type;
+}
+
+std::chrono::milliseconds Fish::getDuration()
+{
+	return duration;
 }

@@ -5,6 +5,7 @@
 #include "Loader.h"
 #include <iostream>
 #include <functional>
+#include "Fish.h"
 
 static const sf::Vector2u areaSize = sf::Vector2u(12, 12);
 static const unsigned fieldSize = Loader::getInstance().getTexture(Loader::Type::water).getSize().x;
@@ -30,6 +31,9 @@ void PlayState::createScenery()
 	callback = std::bind(&PlayState::onExitToMenu, this);
 	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, buttonPosition.y, sf::Color::Green, "Exit", callback);
 
+	std::function<bool(Fish*)> callb;
+	callb = std::bind(&PlayState::onFieldClicked, this, std::placeholders::_1);
+	Field::setCallback(callb);
 	sf::Vector2f position;
 	for (int i = 0; i < areaSize.x; i++) {
 		area.emplace_back();
@@ -89,6 +93,15 @@ bool PlayState::onExitToMenu()
 {
 	engineRef->setState(new MainMenu(engineRef));
 	return true;
+}
+
+bool PlayState::onFieldClicked(Fish *fishRef)
+{
+	if (fishRef)
+		std::cout << fishRef->getType() << " " << fishRef->getCost() << std::endl;
+	else
+		std::cout << "Miss" << std::endl;
+	return false;
 }
 
 void PlayState::createFish(us dt)

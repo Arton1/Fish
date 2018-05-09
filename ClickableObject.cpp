@@ -3,13 +3,6 @@
 
 ClickableObject::ClickableObject()
 {
-	callback = std::bind(&ClickableObject::defaultClick, this);
-}
-
-bool ClickableObject::defaultClick()
-{
-	std::cout << "Clicked" << std::endl;
-	return false;
 }
 
 bool ClickableObject::gotClicked(const sf::Vector2f &worldPos)
@@ -18,11 +11,4 @@ bool ClickableObject::gotClicked(const sf::Vector2f &worldPos)
 		return true;
 }
 
-void ClickableObject::setCallback(std::function<bool(void)> &func)
-{
-	callback = func;
-}
-
-bool ClickableObject::onClick() {
-	return callback();
-}
+ClickableObject::~ClickableObject() {}
