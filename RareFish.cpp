@@ -1,5 +1,5 @@
 #include "RareFish.h"
-
+#include "Chance.h"
 
 std::string RareFish::getTypeString()
 {
@@ -8,17 +8,21 @@ std::string RareFish::getTypeString()
 
 void RareFish::setCost(Chance & random)
 {
-	cost = 10;
+	cost = random.getRandomValue(7, 25);
 }
 
 void RareFish::setDuration(Chance & random)
 {
-	duration = std::chrono::milliseconds(1000);
+	int value = random.getRandomValue(900, 1300);
+	duration = std::chrono::milliseconds(value);
 }
 
-RareFish::RareFish(Chance &random)
+RareFish::RareFish(Chance &random):
+	Fish(random)
 {
 	randomizeFish(random);
+	setFadingSpeed();
+	body.setTexture(Loader::getInstance().getTexture(Loader::Type::rare));
 }
 
 

@@ -113,8 +113,6 @@ void PlayState::render() {
 	for (auto itr = area.begin(); itr != area.end(); itr++)
 		for (auto iter = itr->begin(); iter != itr->end(); iter++)
 			window.draw(*iter);
-	if(clickedFishInfo.size())
-		window.draw(clickedFishInfo.front());
 	for (auto itr = clickedFishInfo.begin(); itr != clickedFishInfo.end(); itr++)
 		window.draw(*itr);
 	window.draw(moneyInfo);

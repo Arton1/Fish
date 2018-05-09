@@ -9,12 +9,10 @@
 std::function<bool(Fish*)> Field::callback;
 
 Field::Field(sf::Vector2f position):
-	timeElapsed(0),
 	stopUpdate(true)
 {
 	sf::Texture &texture = Loader::getInstance().getTexture(Loader::Type::water);
 	body.setTexture(texture);
-	color = sf::Color(255, 255, 255);
 	body.setPosition(position);
 }
 
@@ -23,24 +21,11 @@ bool Field::stopUpdating()
 	return stopUpdate;
 }
 
-inline void Field::setFadingSpeed()
-{
-	fadingSpeed = 255000 / fish->getDuration().count();
-}
-
 void Field::update(const us & dt)
 {
-	fade(dt);
-	timeElapsed += dt;
-	if (timeElapsed >= fish->getDuration())
+	fish->fade(dt);
+	if (fish->disappeared())
 		reset();
-}
-
-void Field::fade(const us &dt)
-{
-	color.g = 255 - (double)timeElapsed.count()*fadingSpeed/1000000;
-	color.b = 255 - (double)timeElapsed.count()*fadingSpeed/1000000;
-	body.setColor(color);
 }
 
 bool Field::isFishInside()
@@ -54,7 +39,7 @@ bool Field::isFishInside()
 void Field::initialize(Chance & random)
 {
 	fish = std::shared_ptr<Fish>(FishFactory::createFish(random));
-	setFadingSpeed();
+	fish->setPosition(body.getPosition());
 	stopUpdate = false;
 }
 
@@ -79,10 +64,15 @@ void Field::setCallback(std::function<bool(Fish*)> func)
 	callback = func;
 }
 
+void Field::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	target.draw(body);
+	if(fish.get())
+		target.draw(*fish);
+}
+
 void Field::reset()
 {
-	body.setColor(sf::Color(255,255,255));
-	timeElapsed = timeElapsed.zero();
 	fish.reset();
 	stopUpdate = true;
 }

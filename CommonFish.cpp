@@ -1,5 +1,5 @@
 #include "CommonFish.h"
-
+#include "Chance.h"
 
 std::string CommonFish::getTypeString()
 {
@@ -8,17 +8,21 @@ std::string CommonFish::getTypeString()
 
 void CommonFish::setCost(Chance & random)
 {
-	cost = 1;
+	cost = random.getRandomValue(1, 4);
 }
 
 void CommonFish::setDuration(Chance & random)
 {
-	duration = std::chrono::milliseconds(2000);
+	int value = random.getRandomValue(1000, 1800);
+	duration = std::chrono::milliseconds(value);
 }
 
-CommonFish::CommonFish(Chance & random)
+CommonFish::CommonFish(Chance & random):
+	Fish(random)
 {
 	randomizeFish(random);
+	setFadingSpeed();
+	body.setTexture(Loader::getInstance().getTexture(Loader::Type::common));
 }
 
 

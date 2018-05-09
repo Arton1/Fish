@@ -1,9 +1,16 @@
 #include "Loader.h"
 #include <iostream>
 
+const int Loader::numberOfPNG = 4;
+const char *Loader::path[numberOfPNG] = {
+	"water.png",
+	"common.png",
+	"rare.png",
+	"legendary.png"
+};
+
 Loader::Loader()
 {
-	texture.emplace_back();
 	if (!loadGraphics())
 		terminate();
 }
@@ -14,7 +21,7 @@ Loader::~Loader()
 
 sf::Texture & Loader::getTexture(Type type)
 {
-	return texture[type];
+	return *textures[type];
 }
 
 sf::Font & Loader::getFont()
@@ -24,10 +31,16 @@ sf::Font & Loader::getFont()
 
 bool Loader::loadGraphics()
 {
-	if (font.loadFromFile("Crimson-Roman.ttf") &&
-		texture[0].loadFromFile("water.png"));
-		return true;
-	return false;
+	bool passed = true;
+	if (!font.loadFromFile("Crimson-Roman.ttf"))
+		passed = false;
+	for (int i = 0; i < numberOfPNG; i++) {
+		sf::Texture *texture = new sf::Texture();
+		if (!texture->loadFromFile(path[i]))
+			passed = false;
+		textures.emplace_back(texture);
+	}
+	return passed;
 }
 
 Loader& Loader::getInstance()

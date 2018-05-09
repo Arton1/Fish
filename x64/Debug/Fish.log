@@ -1,96 +1,11 @@
-﻿  State.cpp
-  PlayState.cpp
-c:\users\acer\desktop\fish\playstate.cpp(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\acer\desktop\fish\playstate.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\acer\desktop\fish\playstate.cpp(64): warning C4018: '<': signed/unsigned mismatch
-c:\users\acer\desktop\fish\playstate.cpp(66): warning C4018: '<': signed/unsigned mismatch
-c:\users\acer\desktop\fish\playstate.cpp(144): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-c:\users\acer\desktop\fish\playstate.cpp(145): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-c:\users\acer\desktop\fish\playstate.cpp(158): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-c:\users\acer\desktop\fish\playstate.cpp(160): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
-c:\users\acer\desktop\fish\playstate.cpp(162): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Button>,
-              _Ty=Button,
-              T=float,
-              _Objty=Button
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Button>,
-              _Ty=Button,
-              T=float,
-              _Objty=Button
-          ]
-  c:\users\acer\desktop\fish\playstate.cpp(58): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Ty=Button,
-              T=float
-          ]
+﻿  RareFish.cpp
+c:\users\acer\desktop\fish\rarefish.cpp(11): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\rarefish.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  LegendaryFish.cpp
+c:\users\acer\desktop\fish\legendaryfish.cpp(11): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\legendaryfish.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  CommonFish.cpp
+c:\users\acer\desktop\fish\commonfish.cpp(11): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\acer\desktop\fish\commonfish.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
   Generating Code...
-  Compiling...
-  main.cpp
-  MainMenu.cpp
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Button>,
-              _Ty=Button,
-              T=float,
-              _Objty=Button
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Button>,
-              _Ty=Button,
-              T=float,
-              _Objty=Button
-          ]
-  c:\users\acer\desktop\fish\mainmenu.cpp(19): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Ty=Button,
-              T=float
-          ]
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Engine.cpp
-  CreditMenu.cpp
-c:\users\acer\desktop\fish\creditmenu.cpp(25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Button>,
-              _Ty=Button,
-              T=float,
-              _Objty=Button
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Alloc=std::allocator<Button>,
-              _Ty=Button,
-              T=float,
-              _Objty=Button
-          ]
-  c:\users\acer\desktop\fish\creditmenu.cpp(33): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
-          with
-          [
-              _Ty=Button,
-              T=float
-          ]
-  Button.cpp
-c:\users\acer\desktop\fish\button.cpp(44): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\acer\desktop\fish\button.cpp(45): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\acer\desktop\fish\button.cpp(46): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  ClickableObject.cpp
   Fish.vcxproj -> C:\Users\ACER\Desktop\Fish\x64\Debug\Fish.exe
