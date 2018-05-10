@@ -6,18 +6,19 @@ DrawableGroup::~DrawableGroup()
 {
 }
 
-sf::Drawable& DrawableGroup::add(sf::Drawable &newComponent)
+sf::Drawable& DrawableGroup::add(sf::Drawable *newComponent)
 {
-	children.push_back(&newComponent);
-	return newComponent;
+	children.emplace_back(newComponent);
+	return *newComponent;
 }
 
 void DrawableGroup::remove(sf::Drawable  &componentInstance)
 {
-	std::vector<Drawable*>::iterator itr = find(children.begin(), children.end(), &componentInstance);
+	std::vector<std::unique_ptr<Drawable>>::iterator itr;
 	if (itr != children.end())
 	{
-		children.erase(itr);
+		if(itr->get() == &componentInstance)
+			children.erase(itr);
 	}
 }
 
@@ -25,7 +26,7 @@ bool DrawableGroup::remove(int index)
 {
 	if (index > children.size())
 		return false;
-	std::vector<Drawable*>::iterator itr;
+	std::vector<std::unique_ptr<Drawable>>::iterator itr;
 	itr = children.begin();
 	itr = itr + index;
 	children.erase(itr);
@@ -39,8 +40,8 @@ sf::Drawable& DrawableGroup::getComponent(int index)
 
 void DrawableGroup::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
-	for (int i = 0; i < children.size(); i++) 
-		target.draw(*children[i]);
+	for (auto itr = children.begin(); itr != children.end(); itr++) 
+		target.draw(*itr->get());
 }
 
 

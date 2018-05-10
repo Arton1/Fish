@@ -22,7 +22,7 @@ void Button::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	target.draw(label);
 }
 
-Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<void(void)> &callback) {
+Button::Button(int sizeX, int sizeY, float posX, float posY, sf::Color color, std::string txt, std::function<bool(void)> &callback) {
 	sf::Image image;
 	image.create(sizeX, sizeY);
 	sf::Texture texture;
@@ -47,4 +47,13 @@ sf::Vector2f Button::labelPositionToSetTo()
 	position.x = body.getPosition().x + body.getTexture()->getSize().x / 2 - characterXSize*stringSize/2;
 	position.y = body.getPosition().y + body.getTexture()->getSize().y / 2 - characterYSize/2;
 	return position;
+}
+
+void Button::setCallback(std::function<bool(void)> &func)
+{
+	callback = func;
+}
+
+bool Button::onClick() {
+	return callback();
 }

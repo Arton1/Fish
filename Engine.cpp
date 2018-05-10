@@ -2,17 +2,29 @@
 #include "MainMenu.h"
 #include "Button.h"
 
-Engine::Engine()
+typedef std::chrono::high_resolution_clock Clock;
+
+const int Engine::windowSizeX = 800;
+const int Engine::windowSizeY = 600;
+
+Engine::Engine() :
+	pause(false)
 {
-	window.create(sf::VideoMode(800, 600), "Ryby");
+	window.create(sf::VideoMode(windowSizeX, windowSizeY), "Ryby", sf::Style::Titlebar | sf::Style::Close);
 	window.setVerticalSyncEnabled(true);
 	setState(new MainMenu(this));
 }
 
 void Engine::run() {
+	std::chrono::time_point<std::chrono::high_resolution_clock> lastTime = Clock::now();
+	std::chrono::duration<double> frametime(0);
 	while (window.isOpen()) {
+		frametime = Clock::now() - lastTime;
+		lastTime = Clock::now();
+//		std::cout << std::chrono::duration_cast<std::chrono::microseconds>(frametime).count() << std::endl;
 		getInput();
-		update();
+		if(!pause)
+			update(std::chrono::duration_cast<std::chrono::microseconds>(frametime));
 		render();
 	}
 }
@@ -28,8 +40,8 @@ void Engine::getInput() {
 	}
 }
 
-void Engine::update() {
-	currState->update();
+void Engine::update(us dt) {
+	currState->update(dt);
 }
 
 void Engine::render() {
@@ -55,10 +67,6 @@ sf::Vector2f Engine::getWorldCoordsOfMouse()
 	sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
 	sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos);
 	return worldPos;
-}
-
-Game& Engine::getGameInstance() const {
-	return *gameInstance.get();
 }
 
 sf::RenderWindow& Engine::getWindow() { 

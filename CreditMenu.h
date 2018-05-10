@@ -5,13 +5,13 @@
 
 class CreditMenu : public State
 {
-	sf::Text text;
+	static const char *info[];
 
 	void createScenery() override;
 
-	void onExitToMenu();
+	bool onExitToMenu();
 public:
-	void update() override;
+	void update(us dt) override;
 
 	CreditMenu(Engine *engineRef);
 	~CreditMenu();

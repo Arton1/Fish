@@ -13,29 +13,32 @@ MainMenu::MainMenu(Engine *engineRef):
 void MainMenu::createScenery() {
 	sf::Vector2f buttonSize = sf::Vector2f(200, 100);
 	sf::Vector2f buttonPosition = sf::Vector2f(-buttonSize.x / 2, 0);
-	std::function<void()> callback;
+	std::function<bool()> callback;
 
 	callback = std::bind(&MainMenu::onStart, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 - 1.75 * buttonSize.y, sf::Color::Blue, "Start", callback);
 	callback = std::bind(&MainMenu::onCredit, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2, sf::Color::Red, "Credit", callback);
 	callback = std::bind(&MainMenu::onExit, this);
-	buttons.push_back(Button(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback));
+	buttons.emplace_back(buttonSize.x, buttonSize.y, buttonPosition.x, -buttonSize.y / 2 + 1.75 * buttonSize.y, sf::Color::Green, "Exit", callback);
 }
 
-void MainMenu::update() {
+void MainMenu::update(us dt) {
 	if (currentlyClickedObj) {
 		currentlyClickedObj->onClick();
 		currentlyClickedObj = NULL;
 	}
 }
 
-void MainMenu::onExit() {
+bool MainMenu::onExit() {
 	engineRef->getWindow().close();
+	return true;
 }
-void MainMenu::onStart() {
-	engineRef->setState(new PlayState(engineRef));
+bool MainMenu::onStart() {
+	engineRef->setState(new PlayState(engineRef, NULL));
+	return true;
 }
-void MainMenu::onCredit() {
+bool MainMenu::onCredit() {
 	engineRef->setState(new CreditMenu(engineRef));
+	return true;
 }

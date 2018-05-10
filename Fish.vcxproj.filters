@@ -28,6 +28,15 @@
     <Filter Include="Object\GameElements">
       <UniqueIdentifier>{ed42e843-983c-48b6-9164-e86bb0acefe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\GameElements\Fish">
+      <UniqueIdentifier>{69a45efe-3003-4630-9151-92b2022a4848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\GameElements\Fish\Header">
+      <UniqueIdentifier>{94c94906-b642-4f88-9545-08603fcd70eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\GameElements\Fish\Source">
+      <UniqueIdentifier>{5c24af56-19d1-4a04-ad15-40f59c2e29cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -69,6 +78,24 @@
     <ClCompile Include="Field.cpp">
       <Filter>Object\GameElements</Filter>
     </ClCompile>
+    <ClCompile Include="Chance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonFish.cpp">
+      <Filter>Object\GameElements\Fish\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FishFactory.cpp">
+      <Filter>Object\GameElements\Fish\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fish.cpp">
+      <Filter>Object\GameElements\Fish\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LegendaryFish.cpp">
+      <Filter>Object\GameElements\Fish\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RareFish.cpp">
+      <Filter>Object\GameElements\Fish\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h">
@@ -109,6 +136,24 @@
     </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>Object\GameElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Chance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonFish.h">
+      <Filter>Object\GameElements\Fish\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Fish.h">
+      <Filter>Object\GameElements\Fish\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FishFactory.h">
+      <Filter>Object\GameElements\Fish\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LegendaryFish.h">
+      <Filter>Object\GameElements\Fish\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="RareFish.h">
+      <Filter>Object\GameElements\Fish\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
