@@ -3,10 +3,10 @@
 
 const int Loader::numberOfPNG = 4;
 const char *Loader::path[numberOfPNG] = {
-	"water.png",
-	"common.png",
-	"rare.png",
-	"legendary.png"
+	"graphics/water.png",
+	"graphics/common.png",
+	"graphics/rare.png",
+	"graphics/legendary.png"
 };
 
 Loader::Loader()
@@ -32,7 +32,7 @@ sf::Font & Loader::getFont()
 bool Loader::loadGraphics()
 {
 	bool passed = true;
-	if (!font.loadFromFile("Crimson-Roman.ttf"))
+	if (!font.loadFromFile("graphics/Crimson-Roman.ttf"))
 		passed = false;
 	for (int i = 0; i < numberOfPNG; i++) {
 		sf::Texture *texture = new sf::Texture();

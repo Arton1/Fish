@@ -10,8 +10,7 @@ const int Engine::windowSizeY = 600;
 Engine::Engine() :
 	pause(false)
 {
-	window.create(sf::VideoMode(windowSizeX, windowSizeY), "Ryby", sf::Style::Titlebar | sf::Style::Close);
-	window.setVerticalSyncEnabled(true);
+	window.create(sf::VideoMode(windowSizeX, windowSizeY), "Catch fish", sf::Style::Titlebar | sf::Style::Close);
 	setState(new MainMenu(this));
 }
 
@@ -21,7 +20,6 @@ void Engine::run() {
 	while (window.isOpen()) {
 		frametime = Clock::now() - lastTime;
 		lastTime = Clock::now();
-//		std::cout << std::chrono::duration_cast<std::chrono::microseconds>(frametime).count() << std::endl;
 		getInput();
 		if(!pause)
 			update(std::chrono::duration_cast<std::chrono::microseconds>(frametime));
