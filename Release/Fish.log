@@ -1,0 +1,119 @@
+﻿  Button.cpp
+Button.cpp(45): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+Button.cpp(46): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+  Chance.cpp
+Chance.cpp(41): warning C4244: 'argument': conversion from '__int64' to 'unsigned int', possible loss of data
+  ClickableObject.cpp
+  CommonFish.cpp
+CommonFish.cpp(11): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+CommonFish.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  CreditMenu.cpp
+CreditMenu.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  CreditMenu.cpp(37): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Ty=Button,
+              T=float
+          ]
+  DrawableGroup.cpp
+DrawableGroup.cpp(27): warning C4018: '>': signed/unsigned mismatch
+  Engine.cpp
+  Field.cpp
+  Fish.cpp
+Fish.cpp(18): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+Fish.cpp(36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  FishFactory.cpp
+FishFactory.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  Game.cpp
+  LegendaryFish.cpp
+LegendaryFish.cpp(11): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+LegendaryFish.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  Loader.cpp
+  main.cpp
+main.cpp(5): warning C4007: 'WinMain': must be '__stdcall'
+  MainMenu.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  MainMenu.cpp(19): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,double,const sf::Color&,const char(&)[6],std::function<bool (void)>&>(T &,T &,T &,double &&,const sf::Color &,const char (&)[6],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Ty=Button,
+              T=float
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Object.cpp
+  PlayState.cpp
+PlayState.cpp(13): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+PlayState.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+PlayState.cpp(64): warning C4018: '<': signed/unsigned mismatch
+PlayState.cpp(66): warning C4018: '<': signed/unsigned mismatch
+PlayState.cpp(80): warning C4018: '<': signed/unsigned mismatch
+PlayState.cpp(85): warning C4018: '<': signed/unsigned mismatch
+PlayState.cpp(86): warning C4018: '<': signed/unsigned mismatch
+PlayState.cpp(142): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+PlayState.cpp(143): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+PlayState.cpp(156): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+PlayState.cpp(158): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+PlayState.cpp(160): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\xmemory0(856): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\vector(958): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(_Alloc &,_Objty *const ,T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Button>,
+              _Ty=Button,
+              T=float,
+              _Objty=Button
+          ]
+  PlayState.cpp(58): note: see reference to function template instantiation 'void std::vector<Button,std::allocator<_Ty>>::emplace_back<T&,T&,T&,T&,const sf::Color&,const char(&)[5],std::function<bool (void)>&>(T &,T &,T &,T &,const sf::Color &,const char (&)[5],std::function<bool (void)> &)' being compiled
+          with
+          [
+              _Ty=Button,
+              T=float
+          ]
+  RareFish.cpp
+RareFish.cpp(11): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+RareFish.cpp(16): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  State.cpp
+State.cpp(8): warning C4018: '<': signed/unsigned mismatch
+State.cpp(35): warning C4018: '<': signed/unsigned mismatch
+sfml-graphics.lib(sfml-graphics-2.dll) : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'x86'
